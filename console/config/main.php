@@ -11,6 +11,16 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
+    'controllerMap' => [
+        'backup' => [
+            'class' => 'yiier\backup\controllers\BackupController',
+        ]
+    ],
+    'modules' => [
+        'backup' => [
+            'class' => 'yiier\backup\Module',
+        ],
+    ],
     'components' => [
         'log' => [
             'targets' => [

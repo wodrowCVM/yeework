@@ -11,7 +11,7 @@ namespace book\assets;
 
 use yii\web\AssetBundle;
 
-class BootstrapAsset extends AssetBundle
+class Bootstrap extends AssetBundle
 {
     public $css = [];
     public $js = [];
