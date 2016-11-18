@@ -18,4 +18,9 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'book\controllers',
     'params' => $params,
+    'modules' => [
+        'test' => [
+            'class' => 'book\modules\test\Test',
+        ],
+    ],
 ];
