@@ -23,6 +23,14 @@ return [
     'language' => 'en-US',
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Beijing',
+    'charset' => 'UTF-8',
+    'defaultRoute' => '/site',
+    'layout' => 'main',
+    'layoutPath' => '@app/views/layouts',
+    'runtimePath' => '@app/runtime',
+    'viewPath' => '@app/views',
+//    'vendorPath' => '@vendor',
+//    'extensions' => [],
     'bootstrap' => [
         'log',
     ],
@@ -50,4 +58,6 @@ return [
             ],
         ],
     ],
+//    'on eventName' => function(){},
+//    'as behavior' => function(){},
 ];
