@@ -6,6 +6,13 @@
  * Time: 1:55 PM
  */
 
+use yii\bootstrap\Html;
 ?>
 
-123456
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <?=Html::a('test', ['/test']) ?>
+        </div>
+    </div>
+</div>

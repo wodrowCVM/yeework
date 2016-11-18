@@ -14,13 +14,40 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'book',
+    'id' => '1',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'book\controllers',
     'params' => $params,
+    'name' => 'book',
+    'version' => '0.1',
+    'language' => 'en-US',
+    'sourceLanguage' => 'en-US',
+    'timeZone' => 'Asia/Beijing',
+    'bootstrap' => [
+        'log',
+    ],
     'modules' => [
         'test' => [
             'class' => 'book\modules\test\Test',
+        ],
+    ],
+    'components' => [
+        'log' => [
+            'targets' => [
+                'file' => [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error'],
+//                    'categories' => ['wodrow'],
+                ],
+//                'email' => [
+//                    'class' => 'yii\log\EmailTarget',
+//                    'levels' => ['error', 'warning'],
+//                    'message' => [
+//                        'to' => ['admin@example.com', 'developer@example.com'],
+//                        'subject' => '来自 example.com 的新日志消息',
+//                    ],
+//                ],
+            ],
         ],
     ],
 ];
