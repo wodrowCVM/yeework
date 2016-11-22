@@ -9,4 +9,8 @@
         You may customize this page by editing the following file:<br>
         <code><?= __FILE__ ?></code>
     </p>
+    <p>
+        <code><?=$this->params['abc'] ?></code>
+        <code><?=$abcd ?></code>
+    </p>
 </div>

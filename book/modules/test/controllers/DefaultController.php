@@ -2,6 +2,7 @@
 
 namespace book\modules\test\controllers;
 
+use book\modules\test\models\Test;
 use yii\web\Controller;
 
 /**
@@ -15,7 +16,10 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->view->params['abc'] = 'abc';
+        return $this->render('index',[
+            'abcd' => 'abcd'
+        ]);
     }
 
     public function actionNotice()
