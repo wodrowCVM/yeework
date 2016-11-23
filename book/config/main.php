@@ -36,26 +36,30 @@ return [
     ],
     'modules' => [
         'test' => [
-            'class' => 'book\modules\test\Test',
+            'class' => \book\modules\test\Test::className(),
         ],
     ],
     'components' => [
         'log' => [
             'targets' => [
                 'file' => [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::className(),
                     'levels' => ['error'],
 //                    'categories' => ['wodrow'],
                 ],
-//                'email' => [
-//                    'class' => 'yii\log\EmailTarget',
+                'email' => [
+                    'class' => \yii\log\EmailTarget::className(),
 //                    'levels' => ['error', 'warning'],
-//                    'message' => [
-//                        'to' => ['admin@example.com', 'developer@example.com'],
-//                        'subject' => '来自 example.com 的新日志消息',
-//                    ],
-//                ],
+                    'categories' => ['wodrow'],
+                    'message' => [
+                        'to' => ['1173957281@qq.com', /*'developer@example.com'*/],
+                        'subject' => '来自 book 的新日志消息',
+                    ],
+                ],
             ],
+        ],
+        'cache' => [
+            'class' => \yii\caching\FileCache::className(),
         ],
     ],
 //    'on eventName' => function(){},

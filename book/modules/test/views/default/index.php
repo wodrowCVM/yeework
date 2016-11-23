@@ -11,6 +11,6 @@
     </p>
     <p>
         <code><?=$this->params['abc'] ?></code>
-        <code><?=$abcd ?></code>
+        <code><?=Yii::$app->cache->get('x') ?></code>
     </p>
 </div>

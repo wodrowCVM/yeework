@@ -16,6 +16,7 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        \Yii::$app->cache->set('x', '123456789');
         $this->view->params['abc'] = 'abc';
         return $this->render('index',[
             'abcd' => 'abcd'
