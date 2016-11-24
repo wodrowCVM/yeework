@@ -14,7 +14,7 @@ $params = array_merge(
 );
 
 return [
-    'id' => '1',
+    'id' => 1,
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'book\controllers',
     'params' => $params,

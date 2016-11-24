@@ -2,6 +2,7 @@
 
 namespace book\modules\test\controllers;
 
+use book\modules\test\models\Config;
 use book\modules\test\models\Test;
 use yii\web\Controller;
 
@@ -26,5 +27,10 @@ class DefaultController extends Controller
     public function actionNotice()
     {
         \Yii::error('123456');
+    }
+
+    public function actionConfig()
+    {
+        return $this->render('config');
     }
 }

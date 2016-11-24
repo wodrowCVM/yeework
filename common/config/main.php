@@ -5,5 +5,8 @@ return [
         'cache' => [
             'class' => \yii\caching\FileCache::className(),
         ],
+        'config'=>[
+            'class'=>\common\components\config\Config::className(),
+        ]
     ],
 ];
