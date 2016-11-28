@@ -22,7 +22,7 @@ return [
     'version' => '0.1',
     'language' => 'en-US',
     'sourceLanguage' => 'en-US',
-    'timeZone' => 'Asia/Beijing',
+    'timeZone' => 'Asia/Shanghai',
     'charset' => 'UTF-8',
     'defaultRoute' => '/site',
     'layout' => 'main',
