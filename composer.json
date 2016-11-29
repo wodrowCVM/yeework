@@ -3,7 +3,8 @@
         "yiier/yii2-backup": "database backup",
         "dcb9/yii2-qiniu" : {
             "yii2-qiniu":"七牛云",
-            "league/flysystem":"http://flysystem.thephpleague.com/"
+            "league/flysystem":"http://flysystem.thephpleague.com/",
+            "dcb9/yii2-phpredis":"redis"
         }
     },
     "name": "yiisoft/yii2-app-advanced",
