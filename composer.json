@@ -4,7 +4,8 @@
         "dcb9/yii2-qiniu" : {
             "yii2-qiniu":"七牛云",
             "league/flysystem":"http://flysystem.thephpleague.com/",
-            "dcb9/yii2-phpredis":"redis"
+            "dcb9/yii2-phpredis":"redis",
+            "yiisoft/yii2-shell": "use like ./yii shell"
         }
     },
     "name": "yiisoft/yii2-app-advanced",
