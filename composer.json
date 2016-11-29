@@ -1,7 +1,7 @@
 {
     "//": {
         "yiier/yii2-backup": "database backup",
-        "crazyfd/yii2-qiniu" : "七牛云"
+        "dcb9/yii2-qiniu" : "七牛云"
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -22,7 +22,8 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiier/yii2-backup": "*"
+        "yiier/yii2-backup": "*",
+        "dcb9/yii2-qiniu": "^0.5.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

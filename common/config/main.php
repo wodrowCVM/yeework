@@ -7,6 +7,6 @@ return [
         ],
         'config'=>[
             'class'=>\common\components\config\Config::className(),
-        ]
+        ],
     ],
 ];
