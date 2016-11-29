@@ -18,8 +18,8 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "yiier/yii2-backup": "*", /*database backup*/
-        "crazyfd/yii2-qiniu": "dev-master" /* 七牛云 */
+        "yiier/yii2-backup": "*",
+        "crazyfd/yii2-qiniu": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
