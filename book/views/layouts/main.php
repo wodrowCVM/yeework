@@ -24,12 +24,14 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <?php
+$items = [
+    [
+        'label'=>'HOME',
+        'url'=>\yii\helpers\Url::home(),
+    ],
+];
 if (Yii::$app->user->isGuest){
-    $items = [
-        [
-            'label'=>'HOME',
-            'url'=>\yii\helpers\Url::home(),
-        ],
+    $_items = [
         [
             'label'=>'LOGIN',
             'url'=>\yii\helpers\Url::to(['/user/security/login']),
@@ -40,14 +42,10 @@ if (Yii::$app->user->isGuest){
         ],
     ];
 }else{
-    $items = [
-        [
-            'label'=>'HOME',
-            'url'=>\yii\helpers\Url::home(),
-        ],
+    $_items = [
         [
             'label'=>Yii::$app->user->identity->username,
-            'url'=>\yii\helpers\Url::to(['/user/settings/profile', 'id'=>Yii::$app->user->identity->id]),
+            'url'=>\yii\helpers\Url::to(['/user/settings/profile']),
         ],
         [
             'label'=>'LOGOUT',
@@ -56,9 +54,12 @@ if (Yii::$app->user->isGuest){
         ],
     ];
 }
-\yii\bootstrap\NavBar::begin();
+$items = \yii\helpers\ArrayHelper::merge($items, $_items);
+\yii\bootstrap\NavBar::begin(['brandLabel' => 'WODROW']);
 echo \yii\bootstrap\Nav::widget([
     'items'=>$items,
+    'encodeLabels' => false,
+    'options' => ['class' => 'navbar-nav navbar-right nav'],
 ]);
 \yii\bootstrap\NavBar::end();
 ?>
