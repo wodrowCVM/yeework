@@ -9,7 +9,8 @@
         "yiisoft/yii2-shell": "use like ./yii shell",
         "xj/yii2-oauth":{
             "yiisoft/yii2-authclient":"oauth2 client"
-        }
+        },
+        "yiisoft/yii2-codeception":"use codeception/codeception instand"
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -34,10 +35,11 @@
         "dcb9/yii2-qiniu": "^0.5.0",
         "dcb9/yii2-phpredis": "^1.0",
         "yiisoft/yii2-shell": "^2.0",
-        "xj/yii2-oauth": ">=2.0.0"
+        "xj/yii2-oauth": ">=2.0.0",
+        "yiisoft/yii2-jui": "^2.0"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "*",
+        "codeception/codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*"
