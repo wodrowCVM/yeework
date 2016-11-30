@@ -13,7 +13,7 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
-return [
+$config = [
     'id' => 1,
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'book\controllers',
@@ -65,3 +65,5 @@ return [
 //    'on eventName' => function(){},
 //    'as behavior' => function(){},
 ];
+
+return $config;

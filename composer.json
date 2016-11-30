@@ -36,7 +36,8 @@
         "dcb9/yii2-phpredis": "^1.0",
         "yiisoft/yii2-shell": "^2.0",
         "xj/yii2-oauth": ">=2.0.0",
-        "yiisoft/yii2-jui": "^2.0"
+        "yiisoft/yii2-jui": "^2.0",
+        "dektrium/yii2-user": "0.9.*@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",

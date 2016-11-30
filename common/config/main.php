@@ -9,4 +9,9 @@ return [
             'class'=>\common\components\config\Config::className(),
         ],
     ],
+    'modules' => [
+        'user' => [
+            'class' => \dektrium\user\Module::className(),
+        ],
+    ],
 ];

@@ -23,7 +23,26 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<?php
+\yii\bootstrap\NavBar::begin();
+echo \yii\bootstrap\Nav::widget([
+    'items'=>[
+        [
+            'label'=>'HOME',
+            'url'=>\yii\helpers\Url::home(),
+        ],
+        [
+            'label'=>'LOGIN',
+            'url'=>\yii\helpers\Url::to(['/user/security/login']),
+        ],
+        [
+            'label'=>'JOIN',
+            'url'=>\yii\helpers\Url::to(['/user/registration/register']),
+        ],
+    ],
+]);
+\yii\bootstrap\NavBar::end();
+?>
 <?=$content ?>
 
 <?php $this->endBody() ?>
