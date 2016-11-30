@@ -1,6 +1,9 @@
 <?php
-return [
-    'adminEmail' => '1173957281@qq.com',
-    'supportEmail' => '1173957281@qq.com',
+$params = [
+    'adminEmail' => \common\config\ConfigDataLocal::$config['wodrow_qq_email'],
+    'supportEmail' => \common\config\ConfigDataLocal::$config['wodrow_qq_email'],
+    'robotEmail' => \common\config\ConfigDataLocal::$config['wodrow_qq_email'],
     'user.passwordResetTokenExpire' => 3600,
 ];
+
+return $params;

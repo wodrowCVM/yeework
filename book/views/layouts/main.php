@@ -24,9 +24,8 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <?php
-\yii\bootstrap\NavBar::begin();
-echo \yii\bootstrap\Nav::widget([
-    'items'=>[
+if (Yii::$app->user->isGuest){
+    $items = [
         [
             'label'=>'HOME',
             'url'=>\yii\helpers\Url::home(),
@@ -39,11 +38,34 @@ echo \yii\bootstrap\Nav::widget([
             'label'=>'JOIN',
             'url'=>\yii\helpers\Url::to(['/user/registration/register']),
         ],
-    ],
+    ];
+}else{
+    $items = [
+        [
+            'label'=>'HOME',
+            'url'=>\yii\helpers\Url::home(),
+        ],
+        [
+            'label'=>Yii::$app->user->identity->username,
+            'url'=>\yii\helpers\Url::to(['/user/settings/profile', 'id'=>Yii::$app->user->identity->id]),
+        ],
+        [
+            'label'=>'LOGOUT',
+            'url'=>\yii\helpers\Url::to(['/user/security/logout']),
+            'linkOptions' => ['data-method' => 'post'],
+        ],
+    ];
+}
+\yii\bootstrap\NavBar::begin();
+echo \yii\bootstrap\Nav::widget([
+    'items'=>$items,
 ]);
 \yii\bootstrap\NavBar::end();
 ?>
-<?=$content ?>
+
+<div class="container">
+    <?=$content ?>
+</div>
 
 <?php $this->endBody() ?>
 </body>

@@ -9,10 +9,8 @@
 use yii\bootstrap\Html;
 ?>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <?=Html::a('test', ['/test']) ?>
-        </div>
+<div class="row">
+    <div class="col-sm-12">
+        <?=Html::a('test', ['/test']) ?>
     </div>
 </div>

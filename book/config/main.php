@@ -38,6 +38,10 @@ $config = [
         'test' => [
             'class' => \book\modules\test\Test::className(),
         ],
+        'user' => [
+            // following line will restrict access to admin controller from frontend application
+            'as frontend' => \dektrium\user\filters\FrontendFilter::className(),
+        ],
     ],
     'components' => [
         'log' => [
@@ -60,6 +64,20 @@ $config = [
         ],
         'cache' => [
             'class' => \yii\caching\FileCache::className(),
+        ],
+        'user' => [
+            'identityCookie' => [
+                'name'     => '_frontendIdentity',
+                'path'     => '/',
+                'httpOnly' => true,
+            ],
+        ],
+        'session' => [
+            'name' => 'FRONTENDSESSID',
+            'cookieParams' => [
+                'httpOnly' => true,
+                'path'     => '/',
+            ],
         ],
     ],
 //    'on eventName' => function(){},
