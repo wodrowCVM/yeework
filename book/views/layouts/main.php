@@ -27,14 +27,8 @@ AppAsset::register($this);
 $items = [
     #
 ];
-$_items = [
-    #
-];
-$rightMenuItems = [
-    #
-];
 if (Yii::$app->user->isGuest){
-    $_rightMenuItems = [
+    $_r_items = [
         [
             'label'=>'LOGIN',
             'url'=>\yii\helpers\Url::to(['/user/security/login']),
@@ -45,7 +39,7 @@ if (Yii::$app->user->isGuest){
         ],
     ];
 }else{
-    $_rightMenuItems = [
+    $_r_items = [
         [
             'label'=>Yii::$app->user->identity->username,
             'url'=>\yii\helpers\Url::to(['/user/settings/profile']),
@@ -57,14 +51,16 @@ if (Yii::$app->user->isGuest){
         ],
     ];
 }
-$items = \yii\helpers\ArrayHelper::merge($items, $_items);
-$rightMenuItems = \yii\helpers\ArrayHelper::merge($rightMenuItems, $_rightMenuItems);
 \yii\bootstrap\NavBar::begin(['brandLabel' => 'WODROW']);
 echo \yii\bootstrap\Nav::widget([
     'items'=>$items,
-//    'rightMenuItems'=>$rightMenuItems,
     'encodeLabels' => false,
     'options' => ['class' => 'navbar-nav nav'],
+]);
+echo \yii\bootstrap\Nav::widget([
+    'items'=>$_r_items,
+    'encodeLabels' => false,
+    'options' => ['class' => 'navbar-nav navbar-right nav', 'style'=>'margin-right:-30px'],
 ]);
 \yii\bootstrap\NavBar::end();
 ?>
