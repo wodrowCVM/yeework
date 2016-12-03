@@ -15,7 +15,6 @@
         <code><?= __FILE__ ?></code>
     </p>
     <p>
-        <code><?php var_dump(\Yii::$app->config->get('k1')) ?></code>
         <code><?=$this->params['abc'] ?></code>
         <code><?=Yii::$app->cache->get('x') ?></code>
         <code><?=\Yii::$app->qiniu->getDisk('wodrow')->getUrl('data_report.png') ?></code>

@@ -40,6 +40,16 @@ $config = [
         ],
         'user' => [
             // following line will restrict access to admin controller from frontend application
+            'class' => \dektrium\user\Module::className(),
+            'mailer' => [
+                'sender'                => [
+                    \common\config\ConfigDataLocal::$config['wodrow_qq_email'] => 'wodrow'
+                ],
+                'welcomeSubject'        => 'Welcome',
+                'confirmationSubject'   => 'Confirmation',
+                'reconfirmationSubject' => 'Email change',
+                'recoverySubject'       => 'Recovery',
+            ],
             'as frontend' => \dektrium\user\filters\FrontendFilter::className(),
         ],
     ],
