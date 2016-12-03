@@ -38,7 +38,8 @@ $config = [
         'test' => [
             'class' => \book\modules\test\Test::className(),
         ],
-        'user' => [
+        /*'user' => [
+            // dektrium/yii2-user
             // following line will restrict access to admin controller from frontend application
             'class' => \dektrium\user\Module::className(),
             'mailer' => [
@@ -51,7 +52,12 @@ $config = [
                 'recoverySubject'       => 'Recovery',
             ],
             'as frontend' => \dektrium\user\filters\FrontendFilter::className(),
-        ],
+        ],*/
+        /*'user' => [
+            // amnah/yii2-user
+            'class' => \amnah\yii2\user\Module::className(),
+            // set custom module properties here ...
+        ],*/
     ],
     'components' => [
         'log' => [
@@ -75,7 +81,8 @@ $config = [
         'cache' => [
             'class' => \yii\caching\FileCache::className(),
         ],
-        'user' => [
+        /*'user' => [
+            // dektrium/yii2-user
             'identityCookie' => [
                 'name'     => '_frontendIdentity',
                 'path'     => '/',
@@ -83,12 +90,17 @@ $config = [
             ],
         ],
         'session' => [
+            // dektrium/yii2-user
             'name' => 'FRONTENDSESSID',
             'cookieParams' => [
                 'httpOnly' => true,
                 'path'     => '/',
             ],
-        ],
+        ],*/
+        /*'user' => [
+            // amnah/yii2-user
+            'class' => \amnah\yii2\user\components\User::className(),
+        ],*/
     ],
 //    'on eventName' => function(){},
 //    'as behavior' => function(){},

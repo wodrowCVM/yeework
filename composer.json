@@ -12,7 +12,9 @@
         },
         "yiisoft/yii2-codeception":"use codeception/codeception instand",
         "yiisoft/yii2-httpclient":"http client",
-        "zelenin/yii2-semantic-ui":"an ui style better for book web"
+        "zelenin/yii2-semantic-ui":"an ui style better for book web",
+        "dektrium/yii2-user":"no self user class",
+        "amnah/yii2-user":"http://yii2.amnahdev.com/site/index"
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -41,7 +43,8 @@
         "yiisoft/yii2-jui": "^2.0",
         "dektrium/yii2-user": "0.9.*@dev",
         "yiisoft/yii2-httpclient": "^2.0",
-        "zelenin/yii2-semantic-ui": "~2"
+        "zelenin/yii2-semantic-ui": "~2",
+        "amnah/yii2-user": "^5.0"
     },
     "require-dev": {
         "codeception/codeception": "*",
