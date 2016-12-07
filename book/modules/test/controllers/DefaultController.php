@@ -45,6 +45,11 @@ class DefaultController extends Controller
         return $this->render('test1',[]);
     }
 
+    public function actionTest2()
+    {
+        return $this->render('test2',[]);
+    }
+
     public function actionNotice()
     {
         \Yii::error('123456');

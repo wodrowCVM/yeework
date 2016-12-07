@@ -4,7 +4,10 @@
 
 <div class="test-default-index">
     <h1><?= $this->context->action->uniqueId ?></h1>
-    <h3><a href="<?=\yii\helpers\Url::to(['test1']) ?>">test1</a></h3>
+    <h3>
+        <a href="<?=\yii\helpers\Url::to(['test1']) ?>">test1</a>
+        <a href="<?=\yii\helpers\Url::to(['test2']) ?>">test2</a>
+    </h3>
     <p>
         This is the view content for action "<?= $this->context->action->id ?>".
         The action belongs to the controller "<?= get_class($this->context) ?>"

@@ -4,7 +4,9 @@
         "dcb9/yii2-qiniu" : {
             "yii2-qiniu":"七牛云"
         },
-        "league/flysystem":"http://flysystem.thephpleague.com/",
+        "creocoder/yii2-flysystem":{
+            "league/flysystem":"http://flysystem.thephpleague.com/"
+        },
         "dcb9/yii2-phpredis":"redis",
         "yiisoft/yii2-shell": "use like ./yii shell",
         "xj/yii2-oauth":{
@@ -15,7 +17,14 @@
         "zelenin/yii2-semantic-ui":"an ui style better for book web",
         "dektrium/yii2-user":"no self user class better",
         "amnah/yii2-user":"http://yii2.amnahdev.com/site/index",
-        "budyaga/yii2-users":"0.1.14"
+        "budyaga/yii2-users":"0.1.14",
+        "hguenot/yii2-gsftp":"a ftp maybe have gui",
+        "kartik-v/yii2-icons":{
+            "yiisoft/yii2-jui":"*",
+            "kartik-v/yii2-krajee-base":"*",
+            "fortawesome/font-awesome":"*",
+            "components/flag-icon-css":"*"
+        }
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -41,9 +50,10 @@
         "dcb9/yii2-phpredis": "^1.0",
         "yiisoft/yii2-shell": "^2.0",
         "xj/yii2-oauth": ">=2.0.0",
-        "yiisoft/yii2-jui": "^2.0",
         "yiisoft/yii2-httpclient": "^2.0",
-        "zelenin/yii2-semantic-ui": "~2"
+        "zelenin/yii2-semantic-ui": "~2",
+        "creocoder/yii2-flysystem": "^0.8.1",
+        "kartik-v/yii2-icons": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
