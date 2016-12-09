@@ -24,7 +24,10 @@
             "kartik-v/yii2-krajee-base":"*",
             "fortawesome/font-awesome":"*",
             "components/flag-icon-css":"*"
-        }
+        },
+        "microinginer/yii2-debug-user-switch":"can not use",
+        "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof",
+        "amnah/yii2-debug": "dev-master can not use"
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -52,12 +55,10 @@
         "xj/yii2-oauth": ">=2.0.0",
         "yiisoft/yii2-httpclient": "^2.0",
         "zelenin/yii2-semantic-ui": "~2",
-        "creocoder/yii2-flysystem": "^0.8.1",
         "kartik-v/yii2-icons": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
-        "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*"
     },
