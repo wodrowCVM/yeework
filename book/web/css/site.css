@@ -20,3 +20,8 @@ body {
     border-top: 1px solid #ddd;
     padding-top: 15px;
 }
+
+/*custom*/
+#navbar-avatar a.dropdown-toggle{
+    padding: 5px 15px;
+}

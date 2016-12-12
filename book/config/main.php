@@ -58,6 +58,9 @@ $config = [
             'class' => \amnah\yii2\user\Module::className(),
             // set custom module properties here ...
         ],*/
+        'shop' => [
+            'class' => 'book\modules\shop\Shop',
+        ],
     ],
     'components' => [
         'log' => [

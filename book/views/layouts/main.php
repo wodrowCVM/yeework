@@ -85,29 +85,46 @@ AppAsset::register($this);
     \yii\bootstrap\NavBar::end();*/
 
     $items = [
-        #
+        ['label' => 'About', 'url' => '/site/about'],
+        ['label' => 'Contact', 'url' => '/site/contact'],
     ];
     if (Yii::$app->user->isGuest){
         $_r_items = [
             [
-                'label'=>'LOGIN',
+                'label'=>'登陆',
                 'url'=>\yii\helpers\Url::to(['/user/security/login']),
             ],
             [
-                'label'=>'JOIN',
+                'label'=>'注册',
                 'url'=>\yii\helpers\Url::to(['/user/registration/register']),
             ],
         ];
     }else{
         $_r_items = [
             [
-                'label'=>Yii::$app->user->identity->username,
-                'url'=>\yii\helpers\Url::to(['/user/settings/profile']),
-            ],
-            [
-                'label'=>'LOGOUT',
-                'url'=>\yii\helpers\Url::to(['/user/security/logout']),
-                'linkOptions' => ['data-method' => 'post'],
+                'label'=>Html::img(Yii::$app->user->identity->profile->getAvatarUrl(40), ['class'=> 'img img-rounded']),
+                'items' => [
+                    [
+                        'label' => "个人中心",
+                        'url' => \yii\helpers\Url::to(['/user/settings/profile']),
+                    ],
+                    [
+                        'label' => "我的订单",
+                        'url' => \yii\helpers\Url::to(['/user/settings/profile']),
+                    ],
+                    [
+                        'label' => "我的店铺",
+                        'url' => \yii\helpers\Url::to(['/shop']),
+                    ],
+                    [
+                        'label' => "退出[".Yii::$app->user->identity->username."]",
+                        'url'=>\yii\helpers\Url::to(['/user/security/logout']),
+                        'linkOptions' => ['data-method' => 'post'],
+                    ],
+                ],
+                'options' => [
+                    'id' => 'navbar-avatar',
+                ],
             ],
         ];
     }
@@ -119,22 +136,23 @@ AppAsset::register($this);
         'class' => 'navbar-fixed-top',
     ]);
     echo bootui\Nav::widget([
-        'items' => [
-            ['label' => 'About', 'url' => '/site/about'],
-            ['label' => 'Contact', 'url' => '/site/contact'],
-            ['label' => 'Content', 'items' => [
-                ['label' => 'News', 'url' => '#'],
-                ['label' => 'Pages', 'url' => '#'],
-                ['label' => 'Files', 'url' => '#'],
-            ]],
-        ],
+        'items' => $items,
         'isNavbar' => true,
     ]);
-
+    ?>
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    <?php
     echo bootui\Nav::widget([
         'items'=>$_r_items,
         'encodeLabels' => false,
-        'options' => ['class' => 'navbar-nav navbar-right nav', 'style'=>'margin-right:-30px'],
+        'options' => [
+            'class' => 'navbar-nav navbar-right nav',
+        ],
     ]);
     bootui\NavBar::end();
     ?>
