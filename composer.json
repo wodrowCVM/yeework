@@ -1,5 +1,16 @@
 {
     "//": {
+        "UI":{
+            "zelenin/yii2-semantic-ui":"an ui style better for book web",
+            "kartik-v/yii2-icons":{
+                "yiisoft/yii2-jui":"*",
+                "kartik-v/yii2-krajee-base":"*",
+                "fortawesome/font-awesome":"*",
+                "components/flag-icon-css":"*"
+            },
+            "warwar/yii2-theme-flat": "flat-ui",
+            "mediabeast/flat-admin": "3.2"
+        },
         "yiier/yii2-backup": "database backup",
         "dcb9/yii2-qiniu" : {
             "yii2-qiniu":"七牛云"
@@ -14,17 +25,10 @@
         },
         "yiisoft/yii2-codeception":"use codeception/codeception instand",
         "yiisoft/yii2-httpclient":"http client",
-        "zelenin/yii2-semantic-ui":"an ui style better for book web",
         "dektrium/yii2-user":"no self user class better",
         "amnah/yii2-user":"http://yii2.amnahdev.com/site/index",
         "budyaga/yii2-users":"0.1.14",
         "hguenot/yii2-gsftp":"a ftp maybe have gui",
-        "kartik-v/yii2-icons":{
-            "yiisoft/yii2-jui":"*",
-            "kartik-v/yii2-krajee-base":"*",
-            "fortawesome/font-awesome":"*",
-            "components/flag-icon-css":"*"
-        },
         "microinginer/yii2-debug-user-switch":"can not use",
         "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof",
         "amnah/yii2-debug": "dev-master can not use"
@@ -55,7 +59,10 @@
         "xj/yii2-oauth": ">=2.0.0",
         "yiisoft/yii2-httpclient": "^2.0",
         "zelenin/yii2-semantic-ui": "~2",
-        "kartik-v/yii2-icons": "@dev"
+        "kartik-v/yii2-icons": "@dev",
+        "warwar/yii2-theme-flat": "*",
+        "3ch3r46/yii2-bootui": "dev-master",
+        "dektrium/yii2-user": "0.9.*@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
