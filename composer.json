@@ -32,7 +32,8 @@
         "microinginer/yii2-debug-user-switch":"can not use",
         "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof",
         "amnah/yii2-debug": "dev-master can not use",
-        "mootensai/yii2-jsblock": "dev-master"
+        "mootensai/yii2-jsblock": "dev-master",
+        "mdmsoft/yii2-admin": "rbac and adminlte theme"
     },
     "name": "yiisoft/yii2-app-advanced",
     "description": "Yii 2 Advanced Project Template",
@@ -64,7 +65,8 @@
         "warwar/yii2-theme-flat": "*",
         "3ch3r46/yii2-bootui": "dev-master",
         "dektrium/yii2-user": "0.9.*@dev",
-        "mootensai/yii2-jsblock": "dev-master"
+        "mootensai/yii2-jsblock": "dev-master",
+        "mdmsoft/yii2-admin": "~2.0"
     },
     "require-dev": {
         "codeception/codeception": "*",
