@@ -84,6 +84,12 @@ $config = [
         'cache' => [
             'class' => \yii\caching\FileCache::className(),
         ],
+        'formatter' => [
+            'class' => \yii\i18n\Formatter::className(),
+            'dateFormat' => 'php:Y-m-d',
+            'datetimeFormat' => 'php:Y-m-d H:i:s',
+            'timeFormat' => 'php:H:i:s',
+        ],
         'user' => [
             // dektrium/yii2-user
             'identityCookie' => [
