@@ -34,25 +34,13 @@ $config = [
     'bootstrap' => [
         'log',
     ],
+    'controllerMap' => [
+        // ...
+    ],
     'modules' => [
         'test' => [
             'class' => \book\modules\test\Test::className(),
         ],
-        /*'user' => [
-            // dektrium/yii2-user
-            // following line will restrict access to admin controller from frontend application
-            'class' => \dektrium\user\Module::className(),
-            'mailer' => [
-                'sender'                => [
-                    \common\config\ConfigDataLocal::$config['wodrow_qq_email'] => 'wodrow'
-                ],
-                'welcomeSubject'        => 'Welcome',
-                'confirmationSubject'   => 'Confirmation',
-                'reconfirmationSubject' => 'Email change',
-                'recoverySubject'       => 'Recovery',
-            ],
-            'as frontend' => \dektrium\user\filters\FrontendFilter::className(),
-        ],*/
         'user' => [
             // amnah/yii2-user
             'class' => \amnah\yii2\user\Module::className(),
@@ -90,22 +78,6 @@ $config = [
             'datetimeFormat' => 'php:Y-m-d H:i:s',
             'timeFormat' => 'php:H:i:s',
         ],
-        /*'user' => [
-            // dektrium/yii2-user
-            'identityCookie' => [
-                'name'     => '_frontendIdentity',
-                'path'     => '/',
-                'httpOnly' => true,
-            ],
-        ],
-        'session' => [
-            // dektrium/yii2-user
-            'name' => 'FRONTENDSESSID',
-            'cookieParams' => [
-                'httpOnly' => true,
-                'path'     => '/',
-            ],
-        ],*/
         'user' => [
             // amnah/yii2-user
             'class' => \amnah\yii2\user\components\User::className(),
