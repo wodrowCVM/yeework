@@ -1,7 +1,24 @@
-# use mod_rewrite for pretty URL support
-RewriteEngine on
-# if a directory or a file exists, use the request directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-# otherwise forward the request to index.php
-RewriteRule . index.php
+#<IfModule mod_rewrite.c>
+
+#RewriteEngine on
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+#RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    IndexIgnore */*
+    RewriteEngine on
+
+    # if a directory or a file exists, use it directly
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # otherwise forward it to index.php
+    RewriteRule . index.php
+</IfModule>

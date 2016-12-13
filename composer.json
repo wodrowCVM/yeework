@@ -20,6 +20,23 @@
             "mdmsoft/yii2-admin": "~2.0",
             "myweishanli/yii2-extjs-rbac": "^1.0"
         },
+        "yeecms":{
+            "yeesoft/yii2-yee-core": "dev-master",
+            "yeesoft/yii2-yee-auth": "dev-master",
+            "webvimark/date-range-picker": "dev-master",
+            "yeesoft/yii2-yee-user": "dev-master",
+            "yeesoft/yii2-yee-settings": "dev-master",
+            "yeesoft/yii2-yee-menu": "dev-master",
+            "yeesoft/yii2-yee-translation": "dev-master",
+            "yeesoft/yii2-yee-post": "dev-master",
+            "pendalf89/yii2-tinymce": "dev-master",
+            "yeesoft/yii2-yee-media": "dev-master",
+            "yeesoft/yii2-yee-page": "dev-master",
+            "yeesoft/yii2-yee-seo": "dev-master",
+            "yeesoft/yii2-comments": "dev-master",
+            "yeesoft/yii2-yee-comment": "dev-master",
+            "yeesoft/yee-i18n": "dev-master"
+        },
         "yiier/yii2-backup": "database backup",
         "dcb9/yii2-qiniu" : {
             "dcb9/yii2-phpredis": "^1.0",
@@ -75,22 +92,7 @@
         "codeception/codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-faker": "*",
-        "yeesoft/yii2-yee-core": "dev-master",
-        "yeesoft/yii2-yee-auth": "dev-master",
-        "webvimark/date-range-picker": "dev-master",
-        "yeesoft/yii2-yee-user": "dev-master",
-        "yeesoft/yii2-yee-settings": "dev-master",
-        "yeesoft/yii2-yee-menu": "dev-master",
-        "yeesoft/yii2-yee-translation": "dev-master",
-        "yeesoft/yii2-yee-post": "dev-master",
-        "pendalf89/yii2-tinymce": "dev-master",
-        "yeesoft/yii2-yee-media": "dev-master",
-        "yeesoft/yii2-yee-page": "dev-master",
-        "yeesoft/yii2-yee-seo": "dev-master",
-        "yeesoft/yii2-comments": "dev-master",
-        "yeesoft/yii2-yee-comment": "dev-master",
-        "yeesoft/yee-i18n": "dev-master"
+        "yiisoft/yii2-faker": "*"
     },
     "config": {
         "process-timeout": 1800
