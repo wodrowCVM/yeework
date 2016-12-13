@@ -20,7 +20,7 @@ $config = [
     'params' => $params,
     'name' => 'book',
     'version' => '0.1',
-    'language' => 'en-US',
+    'language' => 'zh-CN',
     'sourceLanguage' => 'en-US',
     'timeZone' => 'Asia/Shanghai',
     'charset' => 'UTF-8',
@@ -38,7 +38,7 @@ $config = [
         'test' => [
             'class' => \book\modules\test\Test::className(),
         ],
-        'user' => [
+        /*'user' => [
             // dektrium/yii2-user
             // following line will restrict access to admin controller from frontend application
             'class' => \dektrium\user\Module::className(),
@@ -52,12 +52,12 @@ $config = [
                 'recoverySubject'       => 'Recovery',
             ],
             'as frontend' => \dektrium\user\filters\FrontendFilter::className(),
-        ],
-        /*'user' => [
+        ],*/
+        'user' => [
             // amnah/yii2-user
             'class' => \amnah\yii2\user\Module::className(),
             // set custom module properties here ...
-        ],*/
+        ],
         'shop' => [
             'class' => 'book\modules\shop\Shop',
         ],
@@ -90,7 +90,7 @@ $config = [
             'datetimeFormat' => 'php:Y-m-d H:i:s',
             'timeFormat' => 'php:H:i:s',
         ],
-        'user' => [
+        /*'user' => [
             // dektrium/yii2-user
             'identityCookie' => [
                 'name'     => '_frontendIdentity',
@@ -105,11 +105,20 @@ $config = [
                 'httpOnly' => true,
                 'path'     => '/',
             ],
-        ],
-        /*'user' => [
+        ],*/
+        'user' => [
             // amnah/yii2-user
             'class' => \amnah\yii2\user\components\User::className(),
-        ],*/
+        ],
+        'i18n' => [
+            'translations' => [
+                // amnah/yii2-user
+                'user' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages', // example: @app/messages/fr/user.php
+                ]
+            ],
+        ],
     ],
 //    'on eventName' => function(){},
 //    'as behavior' => function(){},

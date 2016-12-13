@@ -91,26 +91,27 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest){
         $_r_items = [
             [
-                'label'=>'登陆',
-                'url'=>\yii\helpers\Url::to(['/user/security/login']),
+                'label'=>Yii::t('app', 'Login'),
+                'url'=>\yii\helpers\Url::to(['/user/login']),
             ],
             [
-                'label'=>'注册',
-                'url'=>\yii\helpers\Url::to(['/user/registration/register']),
+                'label'=>Yii::t('app', 'Join'),
+                'url'=>\yii\helpers\Url::to(['/user/register']),
             ],
         ];
     }else{
         $_r_items = [
             [
-                'label'=>Html::img(Yii::$app->user->identity->profile->getAvatarUrl(40), ['class'=> 'img img-rounded']),
+//                'label'=>Html::img(Yii::$app->user->identity->profile->getAvatarUrl(40), ['class'=> 'img img-rounded']),
+                'label'=>Yii::$app->user->identity->username,
                 'items' => [
                     [
                         'label' => "个人中心",
-                        'url' => \yii\helpers\Url::to(['/user/settings/profile']),
+                        'url' => \yii\helpers\Url::to(['/user/account']),
                     ],
                     [
                         'label' => "我的订单",
-                        'url' => \yii\helpers\Url::to(['/user/settings/profile']),
+                        'url' => \yii\helpers\Url::to(['/user/profile']),
                     ],
                     [
                         'label' => "我的店铺",
@@ -118,7 +119,7 @@ AppAsset::register($this);
                     ],
                     [
                         'label' => "退出[".Yii::$app->user->identity->username."]",
-                        'url'=>\yii\helpers\Url::to(['/user/security/logout']),
+                        'url'=>\yii\helpers\Url::to(['/user/logout']),
                         'linkOptions' => ['data-method' => 'post'],
                     ],
                 ],
