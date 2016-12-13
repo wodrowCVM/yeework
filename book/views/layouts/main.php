@@ -25,70 +25,11 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="wrap">
     <?php
-    // dektrium/yii2-user
-    /*$items = [
-        #
-    ];
-    if (Yii::$app->user->isGuest){
-        $_r_items = [
-            [
-                'label'=>'LOGIN',
-                'url'=>\yii\helpers\Url::to(['/user/security/login']),
-            ],
-            [
-                'label'=>'JOIN',
-                'url'=>\yii\helpers\Url::to(['/user/registration/register']),
-            ],
-        ];
-    }else{
-        $_r_items = [
-            [
-                'label'=>Yii::$app->user->identity->username,
-                'url'=>\yii\helpers\Url::to(['/user/settings/profile']),
-            ],
-            [
-                'label'=>'LOGOUT',
-                'url'=>\yii\helpers\Url::to(['/user/security/logout']),
-                'linkOptions' => ['data-method' => 'post'],
-            ],
-        ];
-    }
-    \yii\bootstrap\NavBar::begin(['brandLabel' => 'WODROW']);
-    echo \yii\bootstrap\Nav::widget([
-        'items'=>$items,
-        'encodeLabels' => false,
-        'options' => ['class' => 'navbar-nav nav'],
-    ]);
-    echo \yii\bootstrap\Nav::widget([
-        'items'=>$_r_items,
-        'encodeLabels' => false,
-        'options' => ['class' => 'navbar-nav navbar-right nav', 'style'=>'margin-right:-30px'],
-    ]);
-    \yii\bootstrap\NavBar::end();*/
-
-    // amnah/yii2-user
-    /*$items = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'User', 'url' => ['/user']],
-        Yii::$app->user->isGuest ?
-            ['label' => 'Login', 'url' => ['/user/login']] : // or ['/user/login-email']
-            ['label' => 'Logout (' . Yii::$app->user->displayName . ')',
-                'url' => ['/user/logout'],
-                'linkOptions' => ['data-method' => 'post']],
-    ];
-    \yii\bootstrap\NavBar::begin(['brandLabel' => 'WODROW']);
-    echo \yii\bootstrap\Nav::widget([
-        'items'=>$items,
-        'encodeLabels' => false,
-        'options' => ['class' => 'navbar-nav navbar-right nav', 'style'=>'margin-right:-30px'],
-    ]);
-    \yii\bootstrap\NavBar::end();*/
-
     $items = [
         ['label' => 'About', 'url' => '/site/about'],
         ['label' => 'Contact', 'url' => '/site/contact'],
     ];
-    if (Yii::$app->user->isGuest){
+    if (/*Yii::$app->user->isGuest*/1){
         $_r_items = [
             [
                 'label'=>Yii::t('app', 'Login'),
@@ -129,7 +70,6 @@ AppAsset::register($this);
             ],
         ];
     }
-
     bootui\NavBar::begin([
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,

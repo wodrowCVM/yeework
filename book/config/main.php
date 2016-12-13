@@ -41,11 +41,6 @@ $config = [
         'test' => [
             'class' => \book\modules\test\Test::className(),
         ],
-        'user' => [
-            // amnah/yii2-user
-            'class' => \amnah\yii2\user\Module::className(),
-            // set custom module properties here ...
-        ],
         'shop' => [
             'class' => 'book\modules\shop\Shop',
         ],
@@ -78,18 +73,8 @@ $config = [
             'datetimeFormat' => 'php:Y-m-d H:i:s',
             'timeFormat' => 'php:H:i:s',
         ],
-        'user' => [
-            // amnah/yii2-user
-            'class' => \amnah\yii2\user\components\User::className(),
-        ],
         'i18n' => [
-            'translations' => [
-                // amnah/yii2-user
-                'user' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/messages', // example: @app/messages/fr/user.php
-                ]
-            ],
+            'translations' => [],
         ],
     ],
 //    'on eventName' => function(){},
