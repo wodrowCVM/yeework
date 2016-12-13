@@ -1,7 +1,5 @@
 <?php
 
-$params = [
-    'user.passwordResetTokenExpire' => 3600
-];
+$params = [];
 
 return $params;
