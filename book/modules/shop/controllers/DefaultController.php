@@ -2,7 +2,6 @@
 
 namespace book\modules\shop\controllers;
 
-use dektrium\user\filters\AccessRule;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -16,9 +15,6 @@ class DefaultController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'ruleConfig' => [
-                    'class' => AccessRule::className(),
-                ],
                 'rules' => [
                     [
 //                        'actions' => ['*'],
