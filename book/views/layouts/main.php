@@ -26,8 +26,14 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     $items = [
-        ['label' => 'About', 'url' => '/site/about'],
-        ['label' => 'Contact', 'url' => '/site/contact'],
+        [
+            'label' => 'Shop',
+            'url' => ['/shop'],
+        ],
+        [
+            'label' => 'About',
+            'url' => ['/site/about'],
+        ],
     ];
     if (Yii::$app->user->isGuest){
         $_r_items = [
@@ -71,13 +77,13 @@ AppAsset::register($this);
             ],
         ];
     }
-    bootui\NavBar::begin([
+    \bootui\NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'type' => bootui\NavBar::TYPE_DEFAULT,
+        'type' => \bootui\NavBar::TYPE_DEFAULT,
         'class' => 'navbar-fixed-top',
     ]);
-    echo bootui\Nav::widget([
+    echo \bootui\Nav::widget([
         'items' => $items,
         'encodeLabels' => false,
         'isNavbar' => true,
@@ -90,7 +96,7 @@ AppAsset::register($this);
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
     <?php
-    echo bootui\Nav::widget([
+    echo \bootui\Nav::widget([
         'items'=>$_r_items,
         'encodeLabels' => false,
         'isNavbar' => true,
@@ -98,7 +104,7 @@ AppAsset::register($this);
             'class' => 'navbar-nav navbar-right nav',
         ],
     ]);
-    bootui\NavBar::end();
+    \bootui\NavBar::end();
     ?>
 
     <div class="container">
@@ -115,6 +121,16 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+<script>
+    $(function(e){
+        // 高亮显示相关li
+        $("ul.nav li").find("a").each(function () {
+            if (window.location.href.indexOf($(this).attr('href'))>0){
+                $(this).parent('li').addClass('active');
+            }
+        })
+    });
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

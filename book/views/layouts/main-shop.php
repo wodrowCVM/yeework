@@ -24,7 +24,7 @@
                 ],
                 [
                     'label'=>'店铺grid',
-                    'url'=>['/shop/shop'],
+                    'url'=>['/shop/shop']
                 ],
             ];
             ?>
@@ -33,7 +33,7 @@
                 'encodeLabels' => false,
 //                'isNavbar' => true,
                 'options' => [
-                    'class' => 'list-group',
+//                    'class' => 'list-group',
                 ],
             ]) ?>
         </div>

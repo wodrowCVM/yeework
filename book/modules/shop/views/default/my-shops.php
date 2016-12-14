@@ -8,5 +8,24 @@
 ?>
 
 <div class="my-shops">
-    my
+    <?php
+    $items = [
+        [
+            'label'=>'我的店铺',
+            'url'=>['/shop/default/my-shops'],
+        ],
+        [
+            'label'=>'店铺grid',
+            'url'=>['/shop/shop']
+        ],
+    ];
+    ?>
+    <?=\bootui\Nav::widget([
+        'items'=>$items,
+        'encodeLabels' => false,
+//                'isNavbar' => true,
+        'options' => [
+//                    'class' => 'list-group',
+        ],
+    ]) ?>
 </div>
