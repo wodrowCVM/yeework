@@ -83,8 +83,8 @@ $config = [
             'class' => \yii\rbac\DbManager::className(), // or use 'yii\rbac\DbManager'
         ],
         'user' => [
-            'identityClass' => \mdm\admin\models\User::className(),
-            'loginUrl' => ['admin/user/login'],
+            'identityClass' => \bookadmin\models\User::className(),
+            'loginUrl' => ['/site/login'],
         ]
     ],
 //    'on eventName' => function(){},
@@ -92,8 +92,9 @@ $config = [
     'as access' => [
         'class' => \mdm\admin\components\AccessControl::className(),
         'allowActions' => [
-            'site/*',
-            'admin/*',
+            '*',
+//            'site/*',
+//            'admin/*',
             // 'some-controller/some-action',
             // The actions listed here will be allowed to everyone including guests.
             // So, 'admin/*' should not appear here in the production, of course.

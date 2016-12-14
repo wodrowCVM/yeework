@@ -42,7 +42,10 @@ $config = [
             'class' => \book\modules\test\Test::className(),
         ],
         'shop' => [
-            'class' => 'book\modules\shop\Shop',
+            'class' => \book\modules\shop\Shop::className(),
+        ],
+        'user' => [
+            'class' => \book\modules\user\Module::className(),
         ],
     ],
     'components' => [
@@ -74,7 +77,15 @@ $config = [
             'timeFormat' => 'php:H:i:s',
         ],
         'i18n' => [
-            'translations' => [],
+            'translations' => [
+                'user' => [
+                    'class' => \yii\i18n\PhpMessageSource::className(),
+                    'basePath' => '@app/messages',
+                ]
+            ],
+        ],
+        'user' => [
+            'class' => \book\modules\user\components\User::className(),
         ],
     ],
 //    'on eventName' => function(){},

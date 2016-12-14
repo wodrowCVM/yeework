@@ -29,7 +29,7 @@ AppAsset::register($this);
         ['label' => 'About', 'url' => '/site/about'],
         ['label' => 'Contact', 'url' => '/site/contact'],
     ];
-    if (/*Yii::$app->user->isGuest*/1){
+    if (Yii::$app->user->isGuest){
         $_r_items = [
             [
                 'label'=>Yii::t('app', 'Login'),
@@ -41,10 +41,11 @@ AppAsset::register($this);
             ],
         ];
     }else{
+        $show_name = Yii::$app->user->identity->username?Yii::$app->user->identity->username:Yii::$app->user->identity->email;
         $_r_items = [
             [
 //                'label'=>Html::img(Yii::$app->user->identity->profile->getAvatarUrl(40), ['class'=> 'img img-rounded']),
-                'label'=>Yii::$app->user->identity->username,
+                'label'=>$show_name,
                 'items' => [
                     [
                         'label' => "个人中心",
@@ -59,7 +60,7 @@ AppAsset::register($this);
                         'url' => \yii\helpers\Url::to(['/shop']),
                     ],
                     [
-                        'label' => "退出[".Yii::$app->user->identity->username."]",
+                        'label' => "退出[".$show_name."]",
                         'url'=>\yii\helpers\Url::to(['/user/logout']),
                         'linkOptions' => ['data-method' => 'post'],
                     ],
