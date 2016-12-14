@@ -11,6 +11,7 @@ namespace book\assets;
 
 use common\assets\Semantic;
 use yii\web\AssetBundle;
+use yii\web\YiiAsset;
 
 class AppAsset extends AssetBundle
 {

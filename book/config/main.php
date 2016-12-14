@@ -76,6 +76,10 @@ $config = [
             'datetimeFormat' => 'php:Y-m-d H:i:s',
             'timeFormat' => 'php:H:i:s',
         ],
+        'urlManager' => [
+            'showScriptName' => false,
+            'enablePrettyUrl' => true,
+        ],
         'i18n' => [
             'translations' => [
                 'user' => [

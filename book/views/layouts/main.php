@@ -33,11 +33,11 @@ AppAsset::register($this);
         $_r_items = [
             [
                 'label'=>Yii::t('app', 'Login'),
-                'url'=>\yii\helpers\Url::to(['/user/login']),
+                'url'=>['/user/login'],
             ],
             [
                 'label'=>Yii::t('app', 'Join'),
-                'url'=>\yii\helpers\Url::to(['/user/register']),
+                'url'=>['/user/register'],
             ],
         ];
     }else{
@@ -49,19 +49,19 @@ AppAsset::register($this);
                 'items' => [
                     [
                         'label' => "个人中心",
-                        'url' => \yii\helpers\Url::to(['/user/account']),
+                        'url' => ['/user/account'],
                     ],
                     [
                         'label' => "我的订单",
-                        'url' => \yii\helpers\Url::to(['/user/profile']),
+                        'url' => ['/user/profile'],
                     ],
                     [
                         'label' => "我的店铺",
-                        'url' => \yii\helpers\Url::to(['/shop']),
+                        'url' => ['/shop'],
                     ],
                     [
                         'label' => "退出[".$show_name."]",
-                        'url'=>\yii\helpers\Url::to(['/user/logout']),
+                        'url'=>['/user/logout'],
                         'linkOptions' => ['data-method' => 'post'],
                     ],
                 ],
@@ -79,6 +79,7 @@ AppAsset::register($this);
     ]);
     echo bootui\Nav::widget([
         'items' => $items,
+        'encodeLabels' => false,
         'isNavbar' => true,
     ]);
     ?>
@@ -92,6 +93,7 @@ AppAsset::register($this);
     echo bootui\Nav::widget([
         'items'=>$_r_items,
         'encodeLabels' => false,
+        'isNavbar' => true,
         'options' => [
             'class' => 'navbar-nav navbar-right nav',
         ],

@@ -17,4 +17,10 @@ class SiteController extends Controller
         $this->view->title = \Yii::$app->name;
         return $this->render('index');
     }
+
+    public function actionAbout()
+    {
+        $this->view->title = \Yii::$app->name;
+        return $this->render('about');
+    }
 }

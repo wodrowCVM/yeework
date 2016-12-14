@@ -26,12 +26,14 @@ class DefaultController extends Controller
         ];
     }
 
-    /**
-     * Renders the index view for the module
-     * @return string
-     */
     public function actionIndex()
     {
-        return $this->render('index');
+//        return $this->render('index');
+        $this->redirect(['my-shops']);
+    }
+
+    public function actionMyShops()
+    {
+        return $this->render('my-shops');
     }
 }
