@@ -8,24 +8,28 @@
 ?>
 
 <div class="my-shops">
-    <?php
-    $items = [
-        [
-            'label'=>'我的店铺',
-            'url'=>['/shop/default/my-shops'],
-        ],
-        [
-            'label'=>'店铺grid',
-            'url'=>['/shop/shop']
-        ],
-    ];
-    ?>
-    <?=\bootui\Nav::widget([
-        'items'=>$items,
-        'encodeLabels' => false,
-//                'isNavbar' => true,
-        'options' => [
-//                    'class' => 'list-group',
-        ],
-    ]) ?>
+    <h4>我的店铺列表 <span class="pull-right"><small><?=\yii\bootstrap\Html::a('创建店铺', ['create-shop']) ?></small></span></h4>
+    <hr>
+    <div>
+        <?php \yii\widgets\Pjax::begin(); ?>    <?= \yii\grid\GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+
+//                'id',
+//                'user_id',
+                'name',
+//                'description',
+                'type',
+                'status',
+                'class',
+                'created_at:datetime',
+                'updated_at:datetime',
+
+                ['class' => 'yii\grid\ActionColumn'],
+            ],
+        ]); ?>
+        <?php \yii\widgets\Pjax::end(); ?>
+    </div>
 </div>

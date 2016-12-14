@@ -33,8 +33,8 @@ class Shop extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'created_at', 'updated_at'], 'required'],
-            [['user_id', 'type', 'status', 'class', 'created_at', 'updated_at'], 'integer'],
+            [['user_id', 'name', 'type', 'status', 'class'], 'required'],
+            [['user_id', 'type', 'status', 'class', ], 'integer'],
             [['name', 'description'], 'string', 'max' => 255],
         ];
     }
@@ -47,7 +47,7 @@ class Shop extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'user_id' => Yii::t('app', 'User ID'),
-            'name' => Yii::t('app', 'Name'),
+            'name' => Yii::t('app', '店铺名称'),
             'description' => Yii::t('app', 'Description'),
             'type' => Yii::t('app', '店铺类型'),
             'status' => Yii::t('app', '状态'),

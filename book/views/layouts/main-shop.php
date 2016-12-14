@@ -20,11 +20,17 @@
             $items = [
                 [
                     'label'=>'我的店铺',
-                    'url'=>['/shop/default/my-shops'],
+                    'url'=>['/shop'],
+                    'options' => [
+                        'class' => 'list-group-item',
+                    ],
                 ],
                 [
                     'label'=>'店铺grid',
-                    'url'=>['/shop/shop']
+                    'url'=>['/shop/shop'],
+                    'options' => [
+                        'class' => 'list-group-item',
+                    ],
                 ],
             ];
             ?>
@@ -33,7 +39,7 @@
                 'encodeLabels' => false,
 //                'isNavbar' => true,
                 'options' => [
-//                    'class' => 'list-group',
+                    'class' => 'list-group',
                 ],
             ]) ?>
         </div>
