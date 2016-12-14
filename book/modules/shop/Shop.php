@@ -18,7 +18,8 @@ class Shop extends \yii\base\Module
     public function init()
     {
         parent::init();
-
+        \Yii::$app->layout = "main-shop";
+        \Yii::$app->view->title = \Yii::$app->name."-我的店铺";
         // custom initialization code goes here
     }
 }

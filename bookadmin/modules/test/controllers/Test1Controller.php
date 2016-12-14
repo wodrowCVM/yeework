@@ -2,19 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: wodrow
- * Date: 11/18/16
- * Time: 11:22 AM
+ * Date: 12/14/16
+ * Time: 3:31 PM
  */
 
-namespace book\controllers;
+namespace bookadmin\modules\test\controllers;
+
 
 use yii\web\Controller;
 
-class SiteController extends Controller
+class Test1Controller extends Controller
 {
     public function actionIndex()
     {
-        $this->view->title = \Yii::$app->name;
         return $this->render('index');
     }
 }

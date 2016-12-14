@@ -8,6 +8,7 @@ use yii\helpers\Html;
 \bookadmin\assets\AppAsset::register($this);
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+$this->title = Yii::$app->name;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

@@ -72,7 +72,7 @@ AppAsset::register($this);
         ];
     }
     bootui\NavBar::begin([
-        'brandLabel' => '易书网',
+        'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'type' => bootui\NavBar::TYPE_DEFAULT,
         'class' => 'navbar-fixed-top',

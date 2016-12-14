@@ -1,6 +1,6 @@
 <?php
 
-namespace book\tables\models;
+namespace book\models\tables;
 
 use Yii;
 
@@ -25,14 +25,6 @@ class Shop extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%shop}}';
-    }
-
-    /**
-     * @return \yii\db\Connection the database connection used by this AR class.
-     */
-    public static function getDb()
-    {
-        return Yii::$app->get('db_book');
     }
 
     /**

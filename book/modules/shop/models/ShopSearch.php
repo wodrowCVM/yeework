@@ -1,16 +1,16 @@
 <?php
 
-namespace bookadmin\modules\test\models;
+namespace book\modules\shop\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use bookadmin\modules\test\models\Config;
+use book\modules\shop\models\Shop;
 
 /**
- * ConfigSearch represents the model behind the search form about `bookadmin\modules\test\models\Config`.
+ * ShopSearch represents the model behind the search form about `book\modules\shop\models\Shop`.
  */
-class ConfigSearch extends Config
+class ShopSearch extends Shop
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ConfigSearch extends Config
     public function rules()
     {
         return [
-            [['key', 'value', 'note'], 'safe'],
-            [['type', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['id', 'user_id', 'type', 'status', 'class', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'description'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ConfigSearch extends Config
      */
     public function search($params)
     {
-        $query = Config::find();
+        $query = Shop::find();
 
         // add conditions that should always apply here
 
@@ -59,15 +59,17 @@ class ConfigSearch extends Config
 
         // grid filtering conditions
         $query->andFilterWhere([
+            'id' => $this->id,
+            'user_id' => $this->user_id,
             'type' => $this->type,
+            'status' => $this->status,
+            'class' => $this->class,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'key', $this->key])
-            ->andFilterWhere(['like', 'value', $this->value])
-            ->andFilterWhere(['like', 'note', $this->note]);
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

@@ -7,7 +7,7 @@ namespace book\models;
  * Date: 2016/12/12 0012
  * Time: 19:11
  */
-class Shop extends \book\tables\models\Shop
+class Shop extends \book\models\tables\Shop
 {
     const TYPE_PERSOPN = 10;
     const TYPE_COMPANY = 11;

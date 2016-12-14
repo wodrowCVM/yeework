@@ -18,7 +18,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'bookadmin\controllers',
     'params' => $params,
-    'name' => 'bookadmin',
+    'name' => '易书网管理中心',
     'version' => '0.1',
     'language' => 'zh-CN',
     'sourceLanguage' => 'en-US',
@@ -51,6 +51,9 @@ $config = [
             'menus' => [
                 'user' => null, // disable menu
             ],
+        ],
+        'user' => [
+            'class' => \bookadmin\modules\user\User::className(),
         ],
     ],
     'components' => [
