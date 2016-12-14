@@ -5,15 +5,9 @@ use mdm\admin\components\Helper;
 use mdm\admin\models\Menu;
 use common\models\tables\User;
 
-//$is_admin_super = Yii::$app->user->identity->is_admin==User::IS_ADMIN_SUPER ?1:0;
-$is_admin_super = 1;
-
 $items = [
     ['label' => Yii::t('app', 'Operate Menus'), 'options' => ['class' => 'header']],
-    ['label' => 'Gii', 'icon'=>'fa fa-cog', 'url' => ['/gii'], 'visible'=>$is_admin_super],
-    ['label' => 'RBAC', 'icon'=>'fa fa-cog', 'url' => ['/admin'], 'visible'=>$is_admin_super],
-    ['label' => 'Packaii', 'icon'=>'fa fa-cog', 'url' => ['/packaii'], 'visible'=>$is_admin_super],
-    ['label' => 'Meter', 'icon'=>'fa fa-dashboard', 'url' => ['/meter'],],
+    ['label' => 'Meter', 'icon'=>'fa fa-dashboard', 'url' => ['/site'],],
 ];
 
 $menus = MenuHelper::getAssignedMenu(Yii::$app->user->id);

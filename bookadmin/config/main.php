@@ -45,7 +45,12 @@ $config = [
             'class' => \bookadmin\modules\shop\Shop::className(),
         ],
         'admin' => [
-            'class' => \mdm\admin\Module::className()
+            'class' => \mdm\admin\Module::className(),
+            'mainLayout' => '@app/views/layouts/main.php',
+            'layout'=>'left-menu',
+            'menus' => [
+                'user' => null, // disable menu
+            ],
         ],
     ],
     'components' => [
@@ -93,7 +98,7 @@ $config = [
         'class' => \mdm\admin\components\AccessControl::className(),
         'allowActions' => [
             'site/*',
-//            'admin/*',
+            'admin/*',
         ]
     ],
 ];
