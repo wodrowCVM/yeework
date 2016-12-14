@@ -14,11 +14,11 @@ $params = array_merge(
 );
 
 $config = [
-    'id' => 1,
+    'id' => 2,
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'book\controllers',
+    'controllerNamespace' => 'bookadmin\controllers',
     'params' => $params,
-    'name' => 'book',
+    'name' => 'bookadmin',
     'version' => '0.1',
     'language' => 'zh-CN',
     'sourceLanguage' => 'en-US',
@@ -39,10 +39,13 @@ $config = [
     ],
     'modules' => [
         'test' => [
-            'class' => \book\modules\test\Test::className(),
+            'class' => \bookadmin\modules\test\Test::className(),
         ],
         'shop' => [
-            'class' => 'book\modules\shop\Shop',
+            'class' => \bookadmin\modules\shop\Shop::className(),
+        ],
+        'admin' => [
+            'class' => \mdm\admin\Module::className()
         ],
     ],
     'components' => [
@@ -59,7 +62,7 @@ $config = [
                     'categories' => ['email'],
                     'message' => [
                         'to' => ['1173957281@qq.com', /*'developer@example.com'*/],
-                        'subject' => '来自 book 的新日志消息',
+                        'subject' => '来自 bookadmin 的新日志消息',
                     ],
                 ],
             ],
@@ -76,9 +79,29 @@ $config = [
         'i18n' => [
             'translations' => [],
         ],
+        'authManager' => [
+            'class' => \yii\rbac\DbManager::className(), // or use 'yii\rbac\DbManager'
+        ],
+        'user' => [
+            'identityClass' => \mdm\admin\models\User::className(),
+            'loginUrl' => ['admin/user/login'],
+        ]
     ],
 //    'on eventName' => function(){},
 //    'as behavior' => function(){},
+    'as access' => [
+        'class' => \mdm\admin\components\AccessControl::className(),
+        'allowActions' => [
+            'site/*',
+            'admin/*',
+            // 'some-controller/some-action',
+            // The actions listed here will be allowed to everyone including guests.
+            // So, 'admin/*' should not appear here in the production, of course.
+            // But in the earlier stages of your development, you may probably want to
+            // add a lot of actions here until you finally completed setting up rbac,
+            // otherwise you may not even take a first step.
+        ]
+    ],
 ];
 
 return $config;

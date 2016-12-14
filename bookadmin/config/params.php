@@ -1,0 +1,5 @@
+<?php
+
+$params = [];
+
+return $params;
