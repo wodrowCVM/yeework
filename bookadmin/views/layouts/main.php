@@ -1,117 +1,48 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wodrow
- * Date: 11/18/16
- * Time: 2:08 PM
- */
-use bookadmin\assets\AppAsset;
-use yii\bootstrap\Html;
+use yii\helpers\Html;
 
-AppAsset::register($this);
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+
+\bookadmin\assets\AppAsset::register($this);
+
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
 ?>
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="hold-transition skin-blue sidebar-mini">
 <?php $this->beginBody() ?>
-<div class="wrap">
-    <?php
-    $items = [
-        ['label' => 'About', 'url' => '/site/about'],
-        ['label' => 'Contact', 'url' => '/site/contact'],
-    ];
-    if (/*Yii::$app->user->isGuest*/1){
-        $_r_items = [
-            [
-                'label'=>Yii::t('app', 'Login'),
-                'url'=>\yii\helpers\Url::to(['/user/login']),
-            ],
-            [
-                'label'=>Yii::t('app', 'Join'),
-                'url'=>\yii\helpers\Url::to(['/user/register']),
-            ],
-        ];
-    }else{
-        $_r_items = [
-            [
-//                'label'=>Html::img(Yii::$app->user->identity->profile->getAvatarUrl(40), ['class'=> 'img img-rounded']),
-                'label'=>Yii::$app->user->identity->username,
-                'items' => [
-                    [
-                        'label' => "个人中心",
-                        'url' => \yii\helpers\Url::to(['/user/account']),
-                    ],
-                    [
-                        'label' => "我的订单",
-                        'url' => \yii\helpers\Url::to(['/user/profile']),
-                    ],
-                    [
-                        'label' => "我的店铺",
-                        'url' => \yii\helpers\Url::to(['/shop']),
-                    ],
-                    [
-                        'label' => "退出[".Yii::$app->user->identity->username."]",
-                        'url'=>\yii\helpers\Url::to(['/user/logout']),
-                        'linkOptions' => ['data-method' => 'post'],
-                    ],
-                ],
-                'options' => [
-                    'id' => 'navbar-avatar',
-                ],
-            ],
-        ];
-    }
-    bootui\NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'type' => bootui\NavBar::TYPE_DEFAULT,
-        'class' => 'navbar-fixed-top',
-    ]);
-    echo bootui\Nav::widget([
-        'items' => $items,
-        'isNavbar' => true,
-    ]);
-    ?>
-    <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <?php
-    echo bootui\Nav::widget([
-        'items'=>$_r_items,
-        'encodeLabels' => false,
-        'options' => [
-            'class' => 'navbar-nav navbar-right nav',
-        ],
-    ]);
-    bootui\NavBar::end();
+<div class="wrapper">
+
+    <?= $this->render(
+        'header.php',
+        ['directoryAsset' => $directoryAsset]
+    ) ?>
+
+    <?= $this->render(
+        'left.php',
+        ['directoryAsset' => $directoryAsset]
+    )
     ?>
 
-    <div class="container">
-        <?=$content ?>
-    </div>
+    <?= $this->render(
+        'content.php',
+        ['content' => $content, 'directoryAsset' => $directoryAsset]
+    ) ?>
+
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
 <?php $this->endBody() ?>
+<?=$this->blocks['extends'] ?>
 </body>
 </html>
 <?php $this->endPage() ?>

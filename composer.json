@@ -9,7 +9,8 @@
                 "components/flag-icon-css":"*"
             },
             "warwar/yii2-theme-flat": "flat-ui",
-            "mediabeast/flat-admin": "3.2"
+            "mediabeast/flat-admin": "3.2",
+            "dmstr/yii2-adminlte-asset": "2.*"
         },
         "user":{
             "dektrium/yii2-user": "0.9.*@dev",
@@ -87,7 +88,8 @@
         "3ch3r46/yii2-bootui": "dev-master",
         "mootensai/yii2-jsblock": "dev-master",
         "mdmsoft/yii2-admin": "~2.0",
-        "amnah/yii2-user": " ^5.0"
+        "amnah/yii2-user": " ^5.0",
+        "dmstr/yii2-adminlte-asset": "2.*"
     },
     "require-dev": {
         "codeception/codeception": "*",

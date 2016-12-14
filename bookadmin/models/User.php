@@ -25,16 +25,26 @@ class User extends \bookadmin\models\tables\User implements IdentityInterface
 
     public function getId()
     {
-        #
+        return $this->getPrimaryKey();
     }
 
     public function getAuthKey()
     {
-        #
+        return $this->auth_key;
     }
-    
+
     public function validateAuthKey($authKey)
     {
-        #
+        return $this->getAuthKey() === $authKey;
+    }
+
+    public static function findByEmail($email)
+    {
+        return static::findOne(['email'=>$email]);
+    }
+
+    public function validatePassword($password)
+    {
+        return \Yii::$app->security->validatePassword($password, $this->password);
     }
 }
