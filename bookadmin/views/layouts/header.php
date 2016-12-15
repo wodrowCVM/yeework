@@ -18,7 +18,9 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
-
+                <li>
+                    <?=\yii\bootstrap\Html::a('前台', Yii::$app->params['frontendUrl'], ['target'=>'_blank']) ?>
+                </li>
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

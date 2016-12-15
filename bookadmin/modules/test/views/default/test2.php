@@ -11,11 +11,21 @@
 
 <?=\kartik\icons\Icon::show('user') ?>
 
+<?=\kartik\tree\TreeView::widget([
+    // single query fetch to render the tree
+    'query'             => \bookadmin\models\tables\Tree::find()->addOrderBy('root, lft'),
+    'headingOptions'    => ['label' => 'Categories'],
+    'isAdmin'           => false,                       // optional (toggle to enable admin mode)
+    'displayValue'      => 1,                           // initial display value
+    //'softDelete'      => true,                        // normally not needed to change
+    //'cacheSettings'   => ['enableCache' => true]      // normally not needed to change
+]) ?>
 
-<?php \mootensai\components\JsBlock::begin() ?>
+
+<?php \common\components\jsblock\JsBlock::begin() ?>
 <script>
     $(function (e) {
         var x = _.assign({ 'a': 1 }, { 'b': 2 }, { 'c': 3 });
     })
 </script>
-<?php \mootensai\components\JsBlock::end() ?>
+<?php \common\components\jsblock\JsBlock::end() ?>

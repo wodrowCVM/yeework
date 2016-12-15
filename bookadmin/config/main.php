@@ -55,6 +55,9 @@ $config = [
         'user' => [
             'class' => \bookadmin\modules\user\User::className(),
         ],
+        'treemanager' =>  [
+            'class' => \kartik\tree\Module::className(),
+        ]
     ],
     'components' => [
         'log' => [

@@ -77,6 +77,14 @@ AppAsset::register($this);
             ],
         ];
     }
+    $_r_items = array_merge([
+        [
+            'label' => "后台",
+            'url' => Yii::$app->params['backendUrl'],
+            'visible' => YII_DEBUG,
+            'linkOptions' => ['target'=>'_blank'],
+        ],
+    ], $_r_items);
     \bootui\NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,

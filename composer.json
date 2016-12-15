@@ -38,6 +38,11 @@
             "yeesoft/yii2-yee-comment": "dev-master",
             "yeesoft/yee-i18n": "dev-master"
         },
+        "tree": {
+            "bluem/tree": "~1.0",
+            "paulzi/yii2-auto-tree": "^1.0",
+            "kartik-v/yii2-tree-manager": "@dev"
+        },
         "yiier/yii2-backup": "database backup",
         "dcb9/yii2-qiniu" : {
             "dcb9/yii2-phpredis": "^1.0",
@@ -49,7 +54,7 @@
         "dcb9/yii2-phpredis":"redis",
         "yiisoft/yii2-shell": "use like ./yii shell",
         "xj/yii2-oauth":{
-            "yiisoft/yii2-authclient":"oauth2 client"
+            "yiisoft/yii2-httpclient": "^2.0 oauth2 client"
         },
         "yiisoft/yii2-codeception":"use codeception/codeception instand",
         "yiisoft/yii2-httpclient":"http client",
@@ -81,14 +86,14 @@
         "dcb9/yii2-qiniu": "^0.5.0",
         "yiisoft/yii2-shell": "^2.0",
         "xj/yii2-oauth": ">=2.0.0",
-        "yiisoft/yii2-httpclient": "^2.0",
         "zelenin/yii2-semantic-ui": "~2",
         "kartik-v/yii2-icons": "@dev",
         "warwar/yii2-theme-flat": "*",
         "3ch3r46/yii2-bootui": "dev-master",
         "mdmsoft/yii2-admin": "~2.0",
         "amnah/yii2-user": " ^5.0",
-        "dmstr/yii2-adminlte-asset": "2.*"
+        "dmstr/yii2-adminlte-asset": "2.*",
+        "kartik-v/yii2-tree-manager": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
