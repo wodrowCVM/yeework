@@ -25,13 +25,6 @@
                         'class' => 'list-group-item',
                     ],
                 ],
-                [
-                    'label'=>'店铺grid',
-                    'url'=>['/shop/shop'],
-                    'options' => [
-                        'class' => 'list-group-item',
-                    ],
-                ],
             ];
             ?>
             <?=\bootui\Nav::widget([
