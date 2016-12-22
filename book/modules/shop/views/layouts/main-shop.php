@@ -52,7 +52,10 @@
         </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
-        <?= $content ?>
+        <?= \yii\widgets\Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?=$content ?>
     </div>
 </div>
 <?php $this->endContent(); ?>

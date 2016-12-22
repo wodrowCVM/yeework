@@ -46,6 +46,7 @@ $config = [
         ],
         'user' => [
             'class' => \book\modules\user\Module::className(),
+//            'loginExpireTime' => '1 minutes',
         ],
     ],
     'components' => [

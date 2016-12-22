@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Shops'), 'url' => ['
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="shop-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
@@ -28,15 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'user_id',
+//            'id',
+//            'user_id',
             'name',
             'description',
             'type',
             'status',
             'class',
-            'created_at',
-            'updated_at',
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 
