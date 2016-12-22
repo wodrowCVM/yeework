@@ -12,10 +12,10 @@
 <?=\kartik\icons\Icon::show('user') ?>
 
 
-<?php \mootensai\components\JsBlock::begin() ?>
+<?php \common\components\jsblock\JsBlock::begin() ?>
 <script>
     $(function (e) {
         var x = _.assign({ 'a': 1 }, { 'b': 2 }, { 'c': 3 });
     })
 </script>
-<?php \mootensai\components\JsBlock::end() ?>
+<?php \common\components\jsblock\JsBlock::end() ?>

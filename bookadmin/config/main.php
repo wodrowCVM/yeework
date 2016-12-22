@@ -38,6 +38,12 @@ $config = [
         // ...
     ],
     'modules' => [
+        'user' => [
+            'class' => \bookadmin\modules\user\User::className(),
+        ],
+        'treemanager' =>  [
+            'class' => \kartik\tree\Module::className(),
+        ],
         'test' => [
             'class' => \bookadmin\modules\test\Test::className(),
         ],
@@ -52,12 +58,9 @@ $config = [
                 'user' => null, // disable menu
             ],
         ],
-        'user' => [
-            'class' => \bookadmin\modules\user\User::className(),
+        'system' => [
+            'class' => \bookadmin\modules\system\System::className(),
         ],
-        'treemanager' =>  [
-            'class' => \kartik\tree\Module::className(),
-        ]
     ],
     'components' => [
         'log' => [
