@@ -9,6 +9,7 @@
 namespace book\modules\shop\controllers;
 
 
+use book\models\Brand;
 use book\modules\shop\models\Goods;
 use book\modules\shop\models\GoodsSearch;
 use yii\filters\AccessControl;
@@ -101,5 +102,13 @@ class GoodsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionCreateBrand()
+    {
+        $model = new Brand();
+        return $this->renderPartial('create-brand', [
+            'model' => $model,
+        ]);
     }
 }
