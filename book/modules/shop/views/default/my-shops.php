@@ -27,7 +27,7 @@
                 'created_at:datetime',
                 'updated_at:datetime',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => \yii\grid\ActionColumn::className()],
             ],
         ]); ?>
         <?php \yii\widgets\Pjax::end(); ?>

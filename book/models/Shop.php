@@ -39,4 +39,21 @@ class Shop extends \book\models\tables\Shop
             self::CLASS_DEFALUT=>'默认',
         ];
     }
+
+    /**
+     * 获取用户的可选店铺
+     * @param int $user_id
+     * @return mixed
+     */
+    public static function getUserSelectShop($user_id = 0)
+    {
+        if ($user_id == 0){
+            $user_id = \Yii::$app->user->identity->id;
+        }
+        $shops = self::find()->where(['user_id'=>$user_id, 'status'=>self::STATUS_ACTIVE])->asArray()->all();
+        foreach ($shops as $k => $v){
+            $data[$v['id']] = $v['name']." (id:".$v['id'].")";
+        }
+        return $data;
+    }
 }

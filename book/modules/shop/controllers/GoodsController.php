@@ -1,18 +1,22 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: wodrow
+ * Date: 12/24/16
+ * Time: 2:36 PM
+ */
 
 namespace book\modules\shop\controllers;
 
+
+use book\modules\shop\models\Goods;
 use book\modules\shop\models\GoodsSearch;
-use book\modules\shop\models\Shop;
-use book\modules\shop\models\ShopSearch;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
-/**
- * Default controller for the `shop` module
- */
-class DefaultController extends Controller
+class GoodsController extends Controller
 {
     public function behaviors()
     {
@@ -31,6 +35,7 @@ class DefaultController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+//                    'create' => ['POST'],
                 ],
             ],
         ];
@@ -38,16 +43,10 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-//        return $this->render('index');
-        $this->redirect(['my-shops']);
-    }
-
-    public function actionMyShops()
-    {
-        $searchModel = new ShopSearch();
+        $searchModel = new GoodsSearch();
         $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
-        return $this->render('my-shops', [
+        return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -55,24 +54,21 @@ class DefaultController extends Controller
 
     public function actionView($id)
     {
-        $goodsSearchModel = new GoodsSearch();
-        $goodsDataProvider = $goodsSearchModel->search(\Yii::$app->request->queryParams);
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'goodsSearchModel' => $goodsSearchModel,
-            'goodsDataProvider' => $goodsDataProvider,
         ]);
     }
 
-    public function actionCreateShop()
+    public function actionCreate()
     {
-        $model = new Shop();
-
+        $model = new Goods();
+        if ($shop_id = \Yii::$app->request->get('shop_id')){
+            $model->shop_id = $shop_id;
+        }
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('create-shop', [
+            return $this->render('create', [
                 'model' => $model,
             ]);
         }
@@ -100,7 +96,7 @@ class DefaultController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Shop::findOne($id)) !== null) {
+        if (($model = GoodsSearch::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
