@@ -26,8 +26,15 @@
                     ],
                 ],
                 [
-                    'label'=>'我的商品',
+                    'label'=>'我的产品',
                     'url'=>['/shop/goods'],
+                    'options' => [
+                        'class' => 'list-group-item',
+                    ],
+                ],
+                [
+                    'label'=>'品牌',
+                    'url'=>['/shop/brand'],
                     'options' => [
                         'class' => 'list-group-item',
                     ],

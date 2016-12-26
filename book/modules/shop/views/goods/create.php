@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="goods-create">
 
-    <h1><?= \yii\helpers\Html::encode($this->title) ?><?=Yii::$app->request->get('shop_id'); ?></h1>
+    <h3><?= \yii\helpers\Html::encode($this->title) ?><?=Yii::$app->request->get('shop_id'); ?></h3>
 
     <?= $this->render('_form', [
         'model' => $model,

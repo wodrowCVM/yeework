@@ -12,8 +12,6 @@ namespace book\modules\shop\controllers;
 use book\models\Brand;
 use book\modules\shop\models\Goods;
 use book\modules\shop\models\GoodsSearch;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -23,7 +21,7 @@ class GoodsController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => \yii\filters\AccessControl::className(),
                 'rules' => [
                     [
 //                        'actions' => ['*'],
@@ -33,7 +31,7 @@ class GoodsController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
 //                    'create' => ['POST'],
@@ -63,6 +61,7 @@ class GoodsController extends Controller
     public function actionCreate()
     {
         $model = new Goods();
+        $model->created_user_id = \Yii::$app->user->identity->id;
         if ($shop_id = \Yii::$app->request->get('shop_id')){
             $model->shop_id = $shop_id;
         }
@@ -107,7 +106,9 @@ class GoodsController extends Controller
     public function actionCreateBrand()
     {
         $model = new Brand();
-        return $this->renderPartial('create-brand', [
+        $model->created_user_id = \Yii::$app->user->identity->id;
+        $model->status = Brand::STATUS_IN_REVIEW;
+        return $this->render('create-brand', [
             'model' => $model,
         ]);
     }

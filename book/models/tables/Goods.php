@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $shop_id
+ * @property integer $created_user_id
  * @property string $name
  * @property integer $brand_id
  * @property string $title
@@ -38,7 +39,7 @@ class Goods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shop_id', 'brand_id', 'name', 'code', 'created_at', 'updated_at', 'location_area', 'location_info'], 'required'],
+            [['shop_id', 'created_user_id', 'brand_id', 'name', 'code', 'created_at', 'updated_at', 'location_area', 'location_info'], 'required'],
             [['shop_id', 'brand_id', 'created_at', 'updated_at', 'status', 'is_virtual', 'location_area'], 'integer'],
             [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255],
         ];
@@ -52,6 +53,7 @@ class Goods extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'shop_id' => Yii::t('app', '商店'),
+            'created_user_id' => Yii::t('app', 'Created User Id'),
             'name' => Yii::t('app', 'Name'),
             'brand_id' => Yii::t('app', '品牌'),
             'title' => Yii::t('app', 'Title'),

@@ -23,11 +23,10 @@
         'items' => \book\models\Brand::getBrandSelect(),
         'options' => ['class' => 'form-control'],
         'addon' => ['prepend' => 'Select'],
-    ])->label('品牌 (<small>若没有找到请先'.\yii\helpers\Html::a('创建品牌','#', [
+    ])->label('品牌 (<small>若没有找到请先'.\yii\helpers\Html::a('创建品牌',['brand/create'], [
             'id' => 'create-brand-a',
-            'data-toggle' => 'modal',
-            'data-target' => '#create-brand-modal',
             'class'=>'btn btn-xs btn-default',
+            'target' => '_blank',
         ]).',通过审核后即可上架产品</small>)', ['encodeLabels' => false]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
@@ -53,25 +52,3 @@
     <?php \bootui\ActiveForm::end(); ?>
 
 </div>
-
-<?php
-\yii\bootstrap\Modal::begin([
-    'id' => 'create-brand-modal',
-    'header' => '<h4 class="modal-title">创建</h4>',
-    'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>',
-]);
-\yii\bootstrap\Modal::end();
-?>
-<?php \common\components\jsblock\JsBlock::begin() ?>
-    <script>
-        $(function (e) {
-            $.get({
-                url:"<?=\yii\helpers\Url::toRoute('create-brand') ?>",
-                data:{},
-                success:function (data) {
-                    $('.modal-body').html(data);
-                }
-            });
-        })
-    </script>
-<?php \common\components\jsblock\JsBlock::end() ?>
