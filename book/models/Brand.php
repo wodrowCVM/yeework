@@ -30,6 +30,7 @@ class Brand extends \book\models\tables\Brand
             [['describe'], 'string'],
             [['created_user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['name', 'chinese_name', 'english_name', 'logo', 'home_link'], 'string', 'max' => 255],
+            ['home_link', 'url'],
         ];
     }
 

@@ -11,10 +11,10 @@ $config = [
             'class' => \kartik\grid\Module::className(),
             // see settings on http://demos.krajee.com/grid#module
         ],
-        /*'datecontrol' => [
+        'datecontrol' => [
             'class' => \kartik\datecontrol\Module::className(),
             // see settings on http://demos.krajee.com/datecontrol#module
-        ],*/
+        ],
         // If you use tree table
         'treemanager' =>  [
             'class' => \kartik\tree\Module::className(),

@@ -95,9 +95,6 @@ class BrandController extends Controller
         $model->created_user_id = \Yii::$app->user->identity->id;
         $model->status = Brand::STATUS_IN_REVIEW;
         if($request->isAjax){
-            /*
-            *   Process for ajax request
-            */
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
