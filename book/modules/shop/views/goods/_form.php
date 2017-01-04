@@ -13,7 +13,7 @@
 
 <div class="goods-form">
 
-    <?php $form = \bootui\ActiveForm::begin([]); ?>
+    <?php $form = \kartik\widgets\ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'shop_id')->dropDownList(\book\models\Shop::getUserSelectShop(), ['style'=>'width:400px;',]) ?>
 
@@ -49,6 +49,6 @@
         <?= \yii\helpers\Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
-    <?php \bootui\ActiveForm::end(); ?>
+    <?php \kartik\widgets\ActiveForm::end(); ?>
 
 </div>
