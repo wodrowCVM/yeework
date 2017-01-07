@@ -5,11 +5,15 @@
  * Date: 12/14/16
  * Time: 4:49 PM
  */
+$this->title = "my-shops";
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="my-shops">
-    <h4>我的店铺列表 <span class="pull-right"><small><?=\yii\bootstrap\Html::a('创建店铺', ['create-shop']) ?></small></span></h4>
-    <hr>
+    <h1><?= \yii\helpers\Html::encode($this->title) ?></h1>
+    <p>
+        <?= \yii\helpers\Html::a(Yii::t('app', 'Create Shop'), ['create-shop'], ['class' => 'btn btn-success']) ?>
+    </p>
     <div>
         <?php \yii\widgets\Pjax::begin(); ?>    <?= \yii\grid\GridView::widget([
             'dataProvider' => $dataProvider,

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model book\modules\shop\models\Brand */
+/* @var $model book\modules\shop\models\Attribute */
 
-$this->title = Yii::t('app', 'Create Brand');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Brands'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Attribute');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Attributes'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="brand-create">
+<div class="attribute-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

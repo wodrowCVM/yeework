@@ -11,5 +11,5 @@ namespace book\modules\shop\models;
 
 class Brand extends \book\models\Brand
 {
-
+    
 }

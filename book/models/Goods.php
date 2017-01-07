@@ -1,6 +1,7 @@
 <?php
 
 namespace book\models;
+use yii\base\Security;
 use yii\behaviors\TimestampBehavior;
 
 
@@ -24,6 +25,26 @@ use yii\behaviors\TimestampBehavior;
  */
 class Goods extends \book\models\tables\Goods
 {
+    const IS_VIRTUAL_FALSE = 0;
+    const IS_VIRTUAL_TURE = 1;
+
+    const STATUS_ACTIVE = 10;
+
+    public static function getIsVirtualSelect()
+    {
+        return [
+            self::IS_VIRTUAL_FALSE=>'不是虚拟产品',
+            self::IS_VIRTUAL_TURE=>'是虚拟产品',
+        ];
+    }
+
+    public static function getStatusSelect()
+    {
+        return [
+            self::STATUS_ACTIVE=>'上架中',
+        ];
+    }
+
     public function behaviors()
     {
         return [
@@ -36,9 +57,16 @@ class Goods extends \book\models\tables\Goods
     public function rules()
     {
         return [
-            [['shop_id', 'brand_id', 'name', 'code', 'location_area', 'location_info'], 'required'],
+            [['shop_id', 'brand_id', 'name', 'code', 'status', 'location_area', 'location_info'], 'required'],
             [['shop_id', 'brand_id', 'created_at', 'updated_at', 'status', 'is_virtual', 'location_area'], 'integer'],
             [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255],
         ];
+    }
+
+    public static function createCode()
+    {
+        $x = time()."_".\Yii::$app->user->identity->id."_";
+        $y = sha1($x);
+        return $y;
     }
 }

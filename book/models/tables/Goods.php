@@ -39,7 +39,7 @@ class Goods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shop_id', 'created_user_id', 'brand_id', 'name', 'code', 'created_at', 'updated_at', 'location_area', 'location_info'], 'required'],
+            [['shop_id', 'created_user_id', 'brand_id', 'name', 'code', 'status', 'created_at', 'updated_at', 'location_area', 'location_info'], 'required'],
             [['shop_id', 'brand_id', 'created_at', 'updated_at', 'status', 'is_virtual', 'location_area'], 'integer'],
             [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255],
         ];
@@ -65,7 +65,7 @@ class Goods extends \yii\db\ActiveRecord
             'attribute_ids_str' => Yii::t('app', '属性id字符串'),
             'is_virtual' => Yii::t('app', '是否虚拟产品'),
             'location_area' => Yii::t('app', '所在地'),
-            'location_info' => Yii::t('app', '所在地详细'),
+            'location_info' => Yii::t('app', '详细地址'),
         ];
     }
 }

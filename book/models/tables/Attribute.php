@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "{{%attribute}}".
  *
  * @property integer $id
- * @property string $identity
  * @property string $name
  * @property string $title
  * @property integer $created_at
@@ -32,9 +31,9 @@ class Attribute extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['identity', 'name', 'created_at', 'updated_at'], 'required'],
+            [['name', 'created_at', 'updated_at'], 'required'],
             [['created_at', 'updated_at', 'status', 'show_type'], 'integer'],
-            [['identity', 'name', 'title'], 'string', 'max' => 255],
+            [['name', 'title'], 'string', 'max' => 255],
         ];
     }
 
@@ -45,7 +44,6 @@ class Attribute extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'identity' => Yii::t('app', '属性唯一标志'),
             'name' => Yii::t('app', '属性名'),
             'title' => Yii::t('app', 'Title'),
             'created_at' => Yii::t('app', 'Created At'),

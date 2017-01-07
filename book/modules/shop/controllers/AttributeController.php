@@ -3,16 +3,16 @@
 namespace book\modules\shop\controllers;
 
 use Yii;
-use book\modules\shop\models\Brand;
-use book\modules\shop\models\BrandSearch;
+use book\modules\shop\models\Attribute;
+use book\modules\shop\models\AttributeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * BrandController implements the CRUD actions for Brand model.
+ * AttributeController implements the CRUD actions for Attribute model.
  */
-class BrandController extends Controller
+class AttributeController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class BrandController extends Controller
     }
 
     /**
-     * Lists all Brand models.
+     * Lists all Attribute models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new BrandSearch();
+        $searchModel = new AttributeSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Displays a single Brand model.
+     * Displays a single Attribute model.
      * @param string $id
      * @return mixed
      */
@@ -57,15 +57,14 @@ class BrandController extends Controller
     }
 
     /**
-     * Creates a new Brand model.
+     * Creates a new Attribute model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Brand();
-        $model->status = $model::STATUS_IN_REVIEW;
-        $model->created_user_id = \Yii::$app->user->identity->getId();
+        $model = new Attribute();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -76,7 +75,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Updates an existing Brand model.
+     * Updates an existing Attribute model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -95,7 +94,7 @@ class BrandController extends Controller
     }
 
     /**
-     * Deletes an existing Brand model.
+     * Deletes an existing Attribute model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -108,35 +107,27 @@ class BrandController extends Controller
     }
 
     /**
-     * Finds the Brand model based on its primary key value.
+     * Finds the Attribute model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Brand the loaded model
+     * @return Attribute the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Brand::findOne($id)) !== null) {
+        if (($model = Attribute::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 
-    public function actionTest()
-    {
-        /*for ($i = 4; $i<10000; $i++){
-            $arr[] = ['name' => 'test'.$i, 'created_user_id'=>Yii::$app->user->identity->getId(), 'logo' => 'http://www.baidu.com', 'created_at' => time(), 'updated_at' => time(), 'status' => Brand::STATUS_ACTIVE, 'sort' => \book\models\Brand::SORT_DEFAULT];
-        }
-        Yii::$app->db->createCommand()->batchInsert(\book\models\Brand::tableName(), ['name','created_user_id','logo', 'created_at', 'updated_at', 'status', 'sort'], $arr)->execute();*/
-    }
-
-    public function actionAjaxSearchBrandForSelect2()
+    public function actionAjaxSearchAttributeForSelect2()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $q = Yii::$app->request->get('name');
         $out = ['results' => ['id' => '', 'name' => '']];
-        $x = $data = \book\models\Brand::find()
+        $x = $data = \book\models\Attribute::find()
             ->select('id, name');
         if ($q) {
             $x = $x->andFilterWhere(['like', 'name', $q]);

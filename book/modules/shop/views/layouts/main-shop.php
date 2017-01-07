@@ -33,8 +33,15 @@
                     ],
                 ],
                 [
-                    'label'=>'品牌',
+                    'label'=>'我的品牌',
                     'url'=>['/shop/brand'],
+                    'options' => [
+                        'class' => 'list-group-item',
+                    ],
+                ],
+                [
+                    'label'=>'我的属性',
+                    'url'=>['/shop/attribute'],
                     'options' => [
                         'class' => 'list-group-item',
                     ],

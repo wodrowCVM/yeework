@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'location_area',
                     // 'location_info',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+//                    ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]); ?>
         </div>
