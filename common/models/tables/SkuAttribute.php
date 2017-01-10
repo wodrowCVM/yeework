@@ -1,17 +1,17 @@
 <?php
 
-namespace book\models\tables;
+namespace common\models\tables;
 
 use Yii;
 
 /**
  * This is the model class for table "{{%sku_attribute}}".
  *
- * @property integer $id
+ * @property string $id
  * @property integer $sku_id
  * @property integer $attribute_id
  * @property string $attribute_value
- * @property integer $show_type
+ * @property string $show_type
  */
 class SkuAttribute extends \yii\db\ActiveRecord
 {

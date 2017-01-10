@@ -9,17 +9,8 @@
 namespace book\models;
 
 
-class Attribute extends \book\models\tables\Attribute
+class Attribute extends \common\models\Attribute
 {
-    public function behaviors()
-    {
-        return [
-            'timestrap' => [
-                'class' => \yii\behaviors\TimestampBehavior::className()
-            ],
-        ];
-    }
-
     public function rules()
     {
         return [

@@ -1,6 +1,6 @@
 <?php
 
-namespace bookadmin\models\tables;
+namespace common\models\tables;
 
 use Yii;
 
@@ -46,7 +46,7 @@ class Category extends \yii\db\ActiveRecord
         return [
             [['root', 'lft', 'rgt', 'lvl', 'icon_type', 'active', 'selected', 'disabled', 'readonly', 'visible', 'collapsed', 'movable_u', 'movable_d', 'movable_l', 'movable_r', 'removable', 'removable_all'], 'integer'],
             [['lft', 'rgt', 'lvl', 'name'], 'required'],
-//            [['name'], 'string', 'max' => 60],
+            [['name'], 'string', 'max' => 60],
             [['icon'], 'string', 'max' => 255],
         ];
     }

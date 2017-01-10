@@ -9,41 +9,7 @@
 namespace book\models;
 
 
-class Brand extends \book\models\tables\Brand
+class Brand extends \common\models\Brand
 {
-    const STATUS_ACTIVE = 10; // 正常
-    const STATUS_IN_REVIEW = 9; // 审核
-
-    const SORT_DEFAULT = 10;
-
-    public function behaviors()
-    {
-        return [
-            'timestrap' => [
-                'class' => \yii\behaviors\TimestampBehavior::className()
-            ],
-        ];
-    }
-
-    public function rules()
-    {
-        return [
-            [['name', 'logo', 'created_user_id', 'status'], 'required'],
-            ['name', 'unique'],
-            [['describe'], 'string'],
-            [['created_user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['name', 'chinese_name', 'english_name', 'logo', 'home_link'], 'string', 'max' => 255],
-            ['home_link', 'url'],
-        ];
-    }
-
-    public static function getBrandSelect()
-    {
-        $data = [];
-        $brands = self::find()->select(['id', 'name'])->asArray()->limit(10)->all();
-        foreach ($brands as $k => $v){
-            $data[$v['id']] = $v['name'];
-        }
-        return $data;
-    }
+    
 }

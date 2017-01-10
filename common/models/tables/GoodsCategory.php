@@ -1,15 +1,15 @@
 <?php
 
-namespace book\models\tables;
+namespace common\models\tables;
 
 use Yii;
 
 /**
  * This is the model class for table "{{%goods_category}}".
  *
- * @property integer $id
- * @property integer $goods_id
- * @property integer $category_id
+ * @property string $id
+ * @property string $goods_id
+ * @property string $category_id
  */
 class GoodsCategory extends \yii\db\ActiveRecord
 {
