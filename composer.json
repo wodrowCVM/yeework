@@ -66,7 +66,8 @@
         "yiisoft/yii2-httpclient":"http client",
         "hguenot/yii2-gsftp":"a ftp maybe have gui",
         "microinginer/yii2-debug-user-switch":"can not use",
-        "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof"
+        "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof",
+        "omnilight/yii2-shopping-cart": "*"
     },
     "name": "yeework",
     "description": "yeework",
@@ -104,7 +105,8 @@
         "mootensai/yii2-enhanced-gii": "dev-master",
         "johnitvn/yii2-ajaxcrud": "*",
         "schmunk42/yii2-giiant": "@dev",
-        "warrence/yii2-kartikgii": "dev-master"
+        "warrence/yii2-kartikgii": "dev-master",
+        "omnilight/yii2-shopping-cart": "*"
     },
     "require-dev": {
         "codeception/codeception": "*",

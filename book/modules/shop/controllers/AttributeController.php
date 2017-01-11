@@ -7,7 +7,6 @@ use book\modules\shop\models\Attribute;
 use book\modules\shop\models\AttributeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * AttributeController implements the CRUD actions for Attribute model.
@@ -20,10 +19,21 @@ class AttributeController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+//                        'actions' => ['*'],
+                        'allow' => true,
+                        'roles' => ['@',],
+                    ],
+                ],
+            ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+//                    'create' => ['POST'],
                 ],
             ],
         ];

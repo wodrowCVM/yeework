@@ -2,12 +2,10 @@
 
 namespace book\modules\shop\controllers;
 
-use Yii;
 use book\modules\shop\models\Brand;
 use book\modules\shop\models\BrandSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * BrandController implements the CRUD actions for Brand model.
@@ -20,10 +18,21 @@ class BrandController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+//                        'actions' => ['*'],
+                        'allow' => true,
+                        'roles' => ['@',],
+                    ],
+                ],
+            ],
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+//                    'create' => ['POST'],
                 ],
             ],
         ];

@@ -11,7 +11,7 @@ namespace bookadmin\models;
 
 use yii\web\IdentityInterface;
 
-class User extends \bookadmin\models\tables\User implements IdentityInterface
+class User extends \common\models\tables\User implements IdentityInterface
 {
     public static function findIdentity($id)
     {
