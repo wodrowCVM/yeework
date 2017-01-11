@@ -81,10 +81,10 @@ class DefaultController extends Controller
     public function actionCreateShop()
     {
         $model = new Shop();
-
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            var_dump($model->getErrors());
             return $this->render('create-shop', [
                 'model' => $model,
             ]);

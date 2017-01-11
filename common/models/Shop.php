@@ -8,7 +8,6 @@
 
 namespace common\models;
 
-
 class Shop extends \common\models\tables\Shop
 {
     const TYPE_PERSOPN = 10;
@@ -22,23 +21,48 @@ class Shop extends \common\models\tables\Shop
     public static function getType()
     {
         return [
-            self::TYPE_PERSOPN=>'个人',
-            self::TYPE_COMPANY=>'公司',
-            self::TYPE_SCHOOL=>'学校',
+            self::TYPE_PERSOPN => '个人',
+            self::TYPE_COMPANY => '公司',
+            self::TYPE_SCHOOL => '学校',
         ];
     }
 
     public static function getStatus()
     {
         return [
-            self::STATUS_ACTIVE=>'正常',
+            self::STATUS_ACTIVE => '正常',
         ];
     }
 
     public static function getClass()
     {
         return [
-            self::CLASS_DEFALUT=>'默认',
+            self::CLASS_DEFALUT => '默认',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => \yii\behaviors\TimestampBehavior::className(),
+            ],
+            'blameable' => [
+                'class' => \yii\behaviors\BlameableBehavior::className(),
+            ],
+            'uuid' => [
+                'class' => \mootensai\behaviors\UUIDBehavior::className(),
+                'column' => 'id',
+            ],
+        ];
+    }
+
+    public function rules()
+    {
+        return [
+            [['user_id', 'name'], 'required'],
+            [['user_id', 'type', 'status', 'class', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
+            [['name', 'description'], 'string', 'max' => 255]
         ];
     }
 
@@ -58,12 +82,12 @@ class Shop extends \common\models\tables\Shop
      */
     public static function getUserSelectShop($user_id = 0)
     {
-        if ($user_id == 0){
+        if ($user_id == 0) {
             $user_id = \Yii::$app->user->identity->id;
         }
-        $shops = self::find()->where(['user_id'=>$user_id, 'status'=>self::STATUS_ACTIVE])->asArray()->all();
-        foreach ($shops as $k => $v){
-            $data[$v['id']] = $v['name']." (id:".$v['id'].")";
+        $shops = self::find()->where(['user_id' => $user_id, 'status' => self::STATUS_ACTIVE])->asArray()->all();
+        foreach ($shops as $k => $v) {
+            $data[$v['id']] = $v['name'] . " (id:" . $v['id'] . ")";
         }
         return $data;
     }
