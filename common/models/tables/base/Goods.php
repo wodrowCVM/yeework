@@ -39,9 +39,7 @@ class Goods extends \yii\db\ActiveRecord
         return [
             [['shop_id', 'name', 'code', 'created_at', 'updated_at', 'location_area', 'location_info', 'created_by', 'updated_by'], 'required'],
             [['shop_id', 'brand_id', 'created_at', 'updated_at', 'status', 'is_virtual', 'location_area', 'created_by', 'updated_by'], 'integer'],
-            [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+            [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255]
         ];
     }
     
@@ -51,17 +49,6 @@ class Goods extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%goods}}';
-    }
-
-    /**
-     * 
-     * @return string
-     * overwrite function optimisticLock
-     * return string name of field are used to stored optimistic lock 
-     * 
-     */
-    public function optimisticLock() {
-        return 'lock';
     }
 
     /**

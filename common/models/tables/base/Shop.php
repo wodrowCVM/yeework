@@ -32,11 +32,9 @@ class Shop extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'required'],
+            [['user_id', 'name', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'required'],
             [['user_id', 'type', 'status', 'class', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'integer'],
-            [['name', 'description'], 'string', 'max' => 255],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+            [['name', 'description'], 'string', 'max' => 255]
         ];
     }
     
@@ -46,17 +44,6 @@ class Shop extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%shop}}';
-    }
-
-    /**
-     * 
-     * @return string
-     * overwrite function optimisticLock
-     * return string name of field are used to stored optimistic lock 
-     * 
-     */
-    public function optimisticLock() {
-        return 'lock';
     }
 
     /**

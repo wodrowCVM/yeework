@@ -18,10 +18,28 @@ class Goods extends BaseGoods
 	    [
             [['shop_id', 'name', 'code', 'created_at', 'updated_at', 'location_area', 'location_info', 'created_by', 'updated_by'], 'required'],
             [['shop_id', 'brand_id', 'created_at', 'updated_at', 'status', 'is_virtual', 'location_area', 'created_by', 'updated_by'], 'integer'],
-            [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255],
-            [['lock'], 'default', 'value' => '0'],
-            [['lock'], 'mootensai\components\OptimisticLockValidator']
+            [['name', 'title', 'code', 'cover', 'attribute_ids_str', 'location_info'], 'string', 'max' => 255]
         ]);
     }
 	
+    /**
+     * @inheritdoc
+     */
+    public function attributeHints()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'shop_id' => Yii::t('app', 'Shop ID'),
+            'name' => Yii::t('app', 'Name'),
+            'brand_id' => Yii::t('app', 'Brand ID'),
+            'title' => Yii::t('app', 'Title'),
+            'code' => Yii::t('app', '货号'),
+            'cover' => Yii::t('app', 'Cover'),
+            'status' => Yii::t('app', 'Status'),
+            'attribute_ids_str' => Yii::t('app', '属性id字符串'),
+            'is_virtual' => Yii::t('app', '是否虚拟产品'),
+            'location_area' => Yii::t('app', '所在地'),
+            'location_info' => Yii::t('app', '所在地详细'),
+        ];
+    }
 }
