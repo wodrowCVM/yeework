@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= \yii\helpers\Html::a(Yii::t('app', 'Create Shop'), ['create-shop'], ['class' => 'btn btn-success']) ?>
     </p>
     <div>
-        <?php \yii\widgets\Pjax::begin(); ?>    <?= \yii\grid\GridView::widget([
+        <?php \yii\widgets\Pjax::begin(); ?>
+        <?= \yii\grid\GridView::widget([
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
@@ -31,7 +32,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'created_at:datetime',
                 'updated_at:datetime',
 
-                ['class' => \yii\grid\ActionColumn::className()],
+                [
+                    'class' => \yii\grid\ActionColumn::className(),
+                    'buttons' => [
+                        'update' => function ($url, $model) {
+                            return \yii\bootstrap\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+                                Yii::$app->urlManager->createUrl(['test/shop/view', 'id' => $model->id, 'edit' => 't']),
+                                ['title' => Yii::t('yii', 'Edit'),]
+                            );
+                        }
+                    ],
+                ],
             ],
         ]); ?>
         <?php \yii\widgets\Pjax::end(); ?>
