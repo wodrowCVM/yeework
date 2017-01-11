@@ -28,7 +28,7 @@ class GoodsSearch extends Goods
 
     public function search($params)
     {
-        $query = Goods::find()->where(['created_user_id'=>\Yii::$app->user->identity->id]);
+        $query = Goods::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
