@@ -106,7 +106,8 @@
         "johnitvn/yii2-ajaxcrud": "*",
         "schmunk42/yii2-giiant": "@dev",
         "warrence/yii2-kartikgii": "dev-master",
-        "omnilight/yii2-shopping-cart": "*"
+        "omnilight/yii2-shopping-cart": "*",
+        "kartik-v/yii2-dialog": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
