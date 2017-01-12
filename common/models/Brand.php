@@ -16,6 +16,14 @@ class Brand extends \common\models\tables\Brand
 
     const SORT_DEFAULT = 10;
 
+    public static function getStatus()
+    {
+        return [
+            self::STATUS_ACTIVE=>'正常',
+            self::STATUS_IN_REVIEW=>'审核',
+        ];
+    }
+
     public static function getBrandSelect()
     {
         $data = [];

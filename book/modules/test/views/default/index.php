@@ -7,6 +7,8 @@
     <h3>
         <a href="<?=\yii\helpers\Url::to(['test1']) ?>">test1</a>
         <a href="<?=\yii\helpers\Url::to(['test2']) ?>">test2</a>
+        <a href="<?=\yii\helpers\Url::to(['/test/shop/index']) ?>">shop</a>
+        <a href="<?=\yii\helpers\Url::to(['/test/brand']) ?>">brand</a>
     </h3>
     <p>
         This is the view content for action "<?= $this->context->action->id ?>".

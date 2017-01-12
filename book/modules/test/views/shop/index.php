@@ -29,8 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'class' => \kartik\grid\SerialColumn::className(),
+            ],
             'id',
             'user_id',
             'name',
@@ -44,14 +45,26 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'updated_by', 
 
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => \kartik\grid\ActionColumn::className(),
+                'header' => '操作',
+                'template' => '{update} {delete}',//只需要展示删除和更新
+                'headerOptions' => [],
                 'buttons' => [
-                    'update' => function ($url, $model) {
+                    'update' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-pencil"></span>',
                             Yii::$app->urlManager->createUrl(['test/shop/view', 'id' => $model->id, 'edit' => 't']),
                             ['title' => Yii::t('yii', 'Edit'),]
                         );
-                    }
+                    },
+                    'delete' => function($url, $model, $key){
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>',
+                            ['del', 'id' => $key],
+                            [
+                                'class' => 'btn btn-default btn-xs',
+                                'data' => ['confirm' => '你确定要删除文章吗？',]
+                            ]
+                        );
+                    },
                 ],
             ],
         ],
