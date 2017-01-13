@@ -13,13 +13,13 @@ use book\models\User;
 
 class Brand extends \book\models\Brand
 {
-    public function getUser()
+    public function getCreatedUser()
     {
         return $this->hasOne(User::className(), ['id'=>'created_by']);
     }
 
-    /*public function getUpdatedUser()
+    public function getUpdatedUser()
     {
         return $this->hasOne(User::className(), ['id'=>'updated_by']);
-    }*/
+    }
 }

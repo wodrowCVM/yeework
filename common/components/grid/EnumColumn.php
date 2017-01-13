@@ -1,7 +1,7 @@
 <?php
 namespace common\components\grid;
 
-use yii\grid\DataColumn;
+use kartik\grid\DataColumn;
 use yii\helpers\ArrayHelper;
 
 /**

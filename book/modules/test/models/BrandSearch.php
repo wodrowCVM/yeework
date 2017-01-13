@@ -29,10 +29,16 @@ class BrandSearch extends Brand
 
     public function search($params)
     {
-        $query = Brand::find();
+        $query = Brand::find()->alias('b');
+        $query = $query->joinWith("createdUser AS c_u", true, 'LEFT JOIN');
+        $query = $query->joinWith("updatedUser AS u_u", true, 'LEFT JOIN');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,//如果不定义，默认为20
+            ],
+//            'sort' => ['attributes' => ['id']],//如果定义，则只能按照id来排序，否则所有字段都可以
         ]);
 
         if (!($this->load($params) && $this->validate())) {
@@ -40,21 +46,21 @@ class BrandSearch extends Brand
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'status' => $this->status,
-            'sort' => $this->sort,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
+            'b.id' => $this->id,
+            'b.created_at' => $this->created_at,
+            'b.updated_at' => $this->updated_at,
+            'b.status' => $this->status,
+            'b.sort' => $this->sort,
+            'b.created_by' => $this->created_by,
+            'b.updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'chinese_name', $this->chinese_name])
-            ->andFilterWhere(['like', 'english_name', $this->english_name])
-            ->andFilterWhere(['like', 'logo', $this->logo])
-            ->andFilterWhere(['like', 'describe', $this->describe])
-            ->andFilterWhere(['like', 'home_link', $this->home_link]);
+        $query->andFilterWhere(['like', 'b.name', $this->name])
+            ->andFilterWhere(['like', 'b.chinese_name', $this->chinese_name])
+            ->andFilterWhere(['like', 'b.english_name', $this->english_name])
+            ->andFilterWhere(['like', 'b.logo', $this->logo])
+            ->andFilterWhere(['like', 'b.describe', $this->describe])
+            ->andFilterWhere(['like', 'b.home_link', $this->home_link]);
 
         return $dataProvider;
     }
