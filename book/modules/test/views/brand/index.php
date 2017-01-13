@@ -158,7 +158,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ];
-    $exportConfig = [
+    $export = [
+//            'label' => '导出',
+        'dataProvider' => $dataProvider,
+//        'fontAwesome'=>'fa fa-share-square-o',//图标
+//        'showConfirmAlert'=>false,
+//        'enableFormatter' => false,
+        'target'=>\kartik\grid\GridView::TARGET_BLANK //在新标签打开
+//            'encoding'=>'gbk',//编码
+    ];
+    /*$exportConfig = [
         \kartik\grid\GridView::CSV => [
             'label' => '导出CSV',
             'iconOptions' => ['class' => 'text-primary'],
@@ -177,7 +186,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'rowDelimiter' => "\r\n",
             ],
         ],
-    ];
+    ];*/
     echo \kartik\grid\GridView::widget([
         'pjax'=>true,
         'dataProvider' => $dataProvider,
@@ -201,20 +210,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'confirmMsg' => '总共'. number_format($dataProvider->getTotalCount()).'条数据，确定要显示全部？',//点击时的确认
         ],
         'autoXlFormat'=>true,
-        'export'=>[
-//            'label' => '导出',
-            'fontAwesome'=>'fa fa-share-square-o',//图标
-//            'fontAwesome'=>true,
-            'showConfirmAlert'=>false,
-            'target'=>\kartik\grid\GridView::TARGET_BLANK //在新标签打开
-//            'encoding'=>'gbk',//编码
-        ],
-        'exportConfig' => $exportConfig,
+        'export'=>$export,
+//        'exportConfig' => $exportConfig,
         'panel' => [
             'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> ' . \kartik\helpers\Html::encode($this->title) . ' </h3>',
             'type' => 'primary',
             'before' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),
-            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']),
+            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']). " ". \kartik\export\ExportMenu::widget([
+                    'dataProvider' => $dataProvider,
+                    'columns' => $columns
+                ]),
             'showFooter' => true,
 //            'footer' => false,
         ],
