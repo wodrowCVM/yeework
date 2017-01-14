@@ -20,6 +20,10 @@ $config = [
             'class' => \kartik\tree\Module::className(),
             // see settings on http://demos.krajee.com/tree-manager#module
         ],
+        'dynagrid'=>[
+            'class'=>\kartik\dynagrid\Module::className(),
+            // other settings (refer documentation)
+        ],
     ],
 ];
 
