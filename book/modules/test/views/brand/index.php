@@ -11,14 +11,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="brand-index">
     <div class="page-header">
-        <h1><?//= \kartik\helpers\Html::encode($this->title) ?></h1>
+
     </div>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <p>
-        <?php /* echo \kartik\helpers\Html::a(Yii::t('app', 'Create {modelClass}', [
-    'modelClass' => 'Brand',
-]), ['create'], ['class' => 'btn btn-success'])*/ ?>
-    </p>
 
     <?php \yii\widgets\Pjax::begin();
     $columns = [
@@ -78,6 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'value' => function ($model) {
                 return $model->createdUser->username;
             },
+//            'mergeHeader'=>true,
         ],
         /*[
             'attribute'=>'name',
@@ -134,10 +129,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => \kartik\grid\ActionColumn::className(),
             'header' => '操作',
             'template' => '{view} {update} {delete}',//只需要展示删除和更新
-            'headerOptions' => [],
+//            'headerOptions' => [],
             'buttons' => [
                 'update' => function ($url, $model, $key) {
-                    Yii::trace($model, 'wodrow');
                     return \kartik\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
                         Yii::$app->urlManager->createUrl(['test/brand/view', 'id' => $model->id, 'edit' => 't']),
                         ['title' => Yii::t('yii', 'Edit'),]
@@ -204,6 +198,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'striped'=>true,
         'persistResize'=>false,
 //        'toolbar' => false,
+        'toolbar' => [
+            '{toggleData}',
+            '{export}',
+        ],
         'toggleDataOptions'=>[
             'maxCount' => 1000,//当超过1000条时，此按钮隐藏，以免数据太多造成加载问题
 //            'minCount' => 10,//当超过10条,点击时才会下面的提示
@@ -216,10 +214,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> ' . \kartik\helpers\Html::encode($this->title) . ' </h3>',
             'type' => 'primary',
             'before' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),
-            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']). " ". \kartik\export\ExportMenu::widget([
+            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info'])/*. " ". \kartik\export\ExportMenu::widget([
                     'dataProvider' => $dataProvider,
                     'columns' => $columns
-                ]),
+                ])*/,
             'showFooter' => true,
 //            'footer' => false,
         ],
