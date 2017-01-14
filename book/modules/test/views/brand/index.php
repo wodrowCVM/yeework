@@ -160,6 +160,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //        'enableFormatter' => false,
         'target'=>\kartik\grid\GridView::TARGET_BLANK //在新标签打开
 //            'encoding'=>'gbk',//编码
+
     ];
     /*$exportConfig = [
         \kartik\grid\GridView::CSV => [
@@ -216,7 +217,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'before' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),
             'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info'])/*. " ". \kartik\export\ExportMenu::widget([
                     'dataProvider' => $dataProvider,
-                    'columns' => $columns
+                    'columns' => $columns,
+                    'columnSelectorOptions'=>[
+                        'label' => 'Columns',
+                        'class' => 'btn btn-danger'
+                    ],
+                    'fontAwesome' => true,
+                    'dropdownOptions' => [
+                        'label' => 'Export All',
+                        'class' => 'btn btn-success'
+                    ],
                 ])*/,
             'showFooter' => true,
 //            'footer' => false,

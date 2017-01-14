@@ -108,7 +108,9 @@
         "schmunk42/yii2-giiant": "@dev",
         "warrence/yii2-kartikgii": "dev-master",
         "omnilight/yii2-shopping-cart": "*",
-        "kartik-v/yii2-dialog": "@dev"
+        "kartik-v/yii2-dialog": "@dev",
+        "kartik-v/yii2-dynagrid": "@dev",
+        "kartik-v/yii2-export": "@dev"
     },
     "require-dev": {
         "codeception/codeception": "*",
