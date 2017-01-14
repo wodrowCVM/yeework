@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="brand-index">
     <div class="page-header">
-
+        <?=\kartik\helpers\Html::a('test1', ['test1'], []) ?>
     </div>
 
     <?php \yii\widgets\Pjax::begin();
