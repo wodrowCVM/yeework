@@ -90,6 +90,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-shell": "^2.0",
+        "phpoffice/phpexcel": "*",
         "kartik-v/yii2-icons": "*",
         "kartik-v/yii2-datecontrol": "*",
         "kartik-v/yii2-mpdf": "*",
