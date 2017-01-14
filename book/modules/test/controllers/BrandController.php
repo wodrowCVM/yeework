@@ -41,6 +41,17 @@ class BrandController extends Controller
         ]);
     }
 
+    public function actionTest1()
+    {
+        $searchModel = new BrandSearch;
+        $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+
+        return $this->render('test1', [
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
+        ]);
+    }
+
     /**
      * Displays a single Brand model.
      * @param string $id
