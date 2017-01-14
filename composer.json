@@ -1,5 +1,8 @@
 {
     "//": {
+        "scripts": {
+            "post-install-cmd": "php init --env=Development --overwrite=n"
+        },
         "UI":{
             "zelenin/yii2-semantic-ui":"an ui style better for book web",
             "kartik-v/yii2-icons":{

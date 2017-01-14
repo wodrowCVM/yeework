@@ -13,10 +13,14 @@ $columns = [
 ?>
 
 <div class="test1">
-    <?=\yii\grid\GridView::widget([
+    <?=\kartik\grid\GridView::widget([
+        'id' => 'test1',
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => $columns,
+        'panel' => [
+            'type' => 'primary',
+        ],
     ]) ?>
 
     <?=\kartik\export\ExportMenu::widget([

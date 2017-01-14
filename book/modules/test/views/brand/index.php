@@ -152,7 +152,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ];
-    $export = [
+//    $columns = ['id', 'name'];
+    /*$export = [
 //            'label' => '导出',
         'dataProvider' => $dataProvider,
 //        'fontAwesome'=>'fa fa-share-square-o',//图标
@@ -161,7 +162,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'target'=>\kartik\grid\GridView::TARGET_BLANK //在新标签打开
 //            'encoding'=>'gbk',//编码
 
-    ];
+    ];*/
     /*$exportConfig = [
         \kartik\grid\GridView::CSV => [
             'label' => '导出CSV',
@@ -197,6 +198,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'condensed' => true,
         'bordered'=>true,
         'striped'=>true,
+        'responsive' => true,
         'persistResize'=>false,
 //        'toolbar' => false,
         'toolbar' => [
@@ -208,14 +210,14 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'minCount' => 10,//当超过10条,点击时才会下面的提示
             'confirmMsg' => '总共'. number_format($dataProvider->getTotalCount()).'条数据，确定要显示全部？',//点击时的确认
         ],
-        'autoXlFormat'=>true,
-        'export'=>$export,
+//        'autoXlFormat'=>true,
+//        'export'=>$export,
 //        'exportConfig' => $exportConfig,
         'panel' => [
-            'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> ' . \kartik\helpers\Html::encode($this->title) . ' </h3>',
             'type' => 'primary',
+            'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> ' . \kartik\helpers\Html::encode($this->title) . ' </h3>',
             'before' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),
-            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info'])/*. " ". \kartik\export\ExportMenu::widget([
+            'after' => \kartik\helpers\Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']). " ". \kartik\export\ExportMenu::widget([
                     'dataProvider' => $dataProvider,
                     'columns' => $columns,
                     'columnSelectorOptions'=>[
@@ -227,8 +229,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'label' => 'Export All',
                         'class' => 'btn btn-success'
                     ],
-                ])*/,
-            'showFooter' => true,
+                ]).
+                '<div class="clearfix"></div>',
+//            'showFooter' => true,
 //            'footer' => false,
         ],
         'pager' => [
