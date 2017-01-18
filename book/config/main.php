@@ -46,6 +46,8 @@ $config = [
         ],
         'user' => [
             'class' => \book\modules\user\Module::className(),
+            'requireUsername' => true,
+            'loginDuration' => 10,
 //            'loginExpireTime' => '1 minutes',
         ],
     ],
@@ -91,6 +93,8 @@ $config = [
         ],
         'user' => [
             'class' => \book\modules\user\components\User::className(),
+            'enableAutoLogin' => false,
+//            'enableSession' => false,
         ],
     ],
 //    'on eventName' => function(){},

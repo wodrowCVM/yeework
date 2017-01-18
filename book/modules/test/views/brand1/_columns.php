@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Url;
 
-return [
+$x = [
     [
         'class' => 'kartik\grid\CheckboxColumn',
         'width' => '20px',
@@ -79,4 +79,9 @@ return [
                           'data-confirm-message'=>'Are you sure want to delete this item'], 
     ],
 
-];   
+];
+$x = [
+    'id',
+    'name',
+];
+return $x;

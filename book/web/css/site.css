@@ -21,10 +21,12 @@ body {
     padding-top: 15px;
 }
 
-/*custom*/
+/*custom begin*/
 /*#navbar-avatar a.dropdown-toggle{
     padding: 5px 15px;
 }*/
+
+/*class*/
 .panel li.active{
     background: #337ab7;
 }
@@ -37,7 +39,10 @@ body {
 .panel li.list-group-item a{
     margin:-10px -15px;
 }
+
+/*id*/
 #head_navbar{
     font-weight: bold;
     background: rgb(3, 38, 58);
 }
+/*custom end*/
