@@ -20,25 +20,7 @@
 <body>
 <?php $this->beginBody() ?>
 <div class="wrap">
-    <?php \yii\bootstrap\NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'class' => 'navbar-fixed-top',
-    ]) ?>
-    <?=\yii\bootstrap\Nav::widget([
-        'items' => [
-            [
-                'label' => 'Shop',
-                'url' => ['/shop'],
-            ],
-            [
-                'label' => 'About',
-                'url' => ['/site/about'],
-            ],
-        ],
-        'encodeLabels' => false,
-    ]) ?>
-    <?php \yii\bootstrap\NavBar::end() ?>
+    <?=$this->render('//public/head_navbar') ?>
     <div class="container">
         <?=$content ?>
     </div>

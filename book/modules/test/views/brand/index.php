@@ -188,18 +188,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => $columns,
-//        'responsive'=>false,//自适应，默认为true
+//        'responsive'=>true,//自适应，默认为true
 //        'containerOptions'=>['style'=>'overflow: auto'], // only set when $responsive = false
         'headerRowOptions'=>['class'=>'kartik-sheet-style'],
         'filterRowOptions'=>['class'=>'kartik-sheet-style'],
-        'hover'=>true,//鼠标移动上去时，颜色变色，默认为false
+//        'hover'=>true,//鼠标移动上去时，颜色变色，默认为false
         'floatHeader'=>true,//向下滚动时，标题栏可以fixed，默认为false
         'showPageSummary'=>true,//显示统计栏，默认为false
         'condensed' => true,
-        'bordered'=>true,
+//        'bordered'=>true,
         'striped'=>true,
-        'responsive' => true,
-        'persistResize'=>false,
+//        'persistResize'=>true,
 //        'toolbar' => false,
         'toolbar' => [
             '{toggleData}',
@@ -207,7 +206,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'toggleDataOptions'=>[
             'maxCount' => 1000,//当超过1000条时，此按钮隐藏，以免数据太多造成加载问题
-//            'minCount' => 10,//当超过10条,点击时才会下面的提示
+            'minCount' => 20,//当超过20条,点击时才会下面的提示
             'confirmMsg' => '总共'. number_format($dataProvider->getTotalCount()).'条数据，确定要显示全部？',//点击时的确认
         ],
 //        'autoXlFormat'=>true,

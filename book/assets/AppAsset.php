@@ -9,6 +9,7 @@
 namespace book\assets;
 
 use common\assets\Semantic;
+use kartik\grid\GridViewAsset;
 use kartik\icons\FontAwesomeAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
@@ -31,7 +32,15 @@ class AppAsset extends AssetBundle
         $this->depends = [
             Bootstrap::className(),
             FontAwesomeAsset::className(),
+            GridViewAsset::className(),
         ];
+        $this->js = array_merge(YII_DEBUG ? [
+            'ModalRemote.js',
+            'ajaxcrud.js',
+        ]:[
+            'ModalRemote.min.js',
+            'ajaxcrud.min.js',
+        ], $this->js);
         /*\Yii::$container->set(\yii\grid\GridView::className(), \Zelenin\yii\SemanticUI\widgets\GridView::className());
         \Yii::$container->set(\yii\widgets\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());
         \Yii::$container->set(\yii\bootstrap\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());

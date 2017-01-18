@@ -37,3 +37,7 @@ body {
 .panel li.list-group-item a{
     margin:-10px -15px;
 }
+#head_navbar{
+    font-weight: bold;
+    background: rgb(3, 38, 58);
+}

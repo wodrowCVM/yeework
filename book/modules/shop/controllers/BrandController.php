@@ -45,7 +45,7 @@ class BrandController extends Controller
     public function actionIndex()
     {
         $searchModel = new BrandSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -75,7 +75,7 @@ class BrandController extends Controller
         $model = new Brand();
         $model->status = $model::STATUS_IN_REVIEW;
         $model->created_user_id = \Yii::$app->user->identity->getId();
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -94,7 +94,7 @@ class BrandController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -143,7 +143,7 @@ class BrandController extends Controller
     public function actionAjaxSearchBrandForSelect2()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $q = Yii::$app->request->get('name');
+        $q = \Yii::$app->request->get('name');
         $out = ['results' => ['id' => '', 'name' => '']];
         $x = $data = \book\models\Brand::find()
             ->select('id, name');

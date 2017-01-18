@@ -48,7 +48,7 @@
                 ],
             ];
             ?>
-            <?=\bootui\Nav::widget([
+            <?=\yii\bootstrap\Nav::widget([
                 'items'=>$items,
                 'encodeLabels' => false,
 //                'isNavbar' => true,
