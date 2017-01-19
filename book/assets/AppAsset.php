@@ -8,6 +8,7 @@
 
 namespace book\assets;
 
+use common\assets\Less;
 use common\assets\Semantic;
 use johnitvn\ajaxcrud\CrudAsset;
 use kartik\grid\GridViewAsset;
@@ -21,6 +22,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
+        'css/site.less',
         'css/site.css',
     ];
 
@@ -34,6 +36,7 @@ class AppAsset extends AssetBundle
             Bootstrap::className(),
             FontAwesomeAsset::className(),
             CrudAsset::className(),
+            Less::className(),
         ];
         /*\Yii::$container->set(\yii\grid\GridView::className(), \Zelenin\yii\SemanticUI\widgets\GridView::className());
         \Yii::$container->set(\yii\widgets\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());
