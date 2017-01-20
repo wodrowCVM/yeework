@@ -107,7 +107,6 @@ $config = [
         'class' => \mdm\admin\components\AccessControl::className(),
         'allowActions' => [
             'site/*',
-            'admin/*',
         ]
     ],
 ];

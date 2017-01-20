@@ -10,12 +10,27 @@ $items = [
     ['label' => 'Meter', 'icon'=>'fa fa-dashboard', 'url' => ['/site'],],
 ];
 
-$menus = MenuHelper::getAssignedMenu(Yii::$app->user->id);
-$menus = Helper::filter($menus);
-foreach ($menus as $k => $v){
-    $x = Menu::find()->where(['name'=>$v['label']])->one();
-    $menus[$k]['icon'] = $x['icon'];
-}
+$menus = \mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id,null,function($menu){
+    $data = json_decode($menu['data'], true);
+    $items = $menu['children'];
+    $return = [
+        'label' => $menu['name'],
+        'url' => [$menu['route']],
+    ];
+    //处理我们的配置
+    if ($data) {
+        //visible
+        isset($data['visible']) && $return['visible'] = $data['visible'];
+        //icon
+        isset($data['icon']) && $data['icon'] && $return['icon'] = $data['icon'];
+        //other attribute e.g. class...
+        $return['options'] = $data;
+    }
+    //没配置图标的显示默认图标
+    (!isset($return['icon']) || !$return['icon']) && $return['icon'] = 'fa fa-circle-o';
+    $items && $return['items'] = $items;
+    return $return;
+});
 
 $items = array_merge($items,$menus);
 
