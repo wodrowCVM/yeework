@@ -10,13 +10,13 @@ namespace console\controllers;
 
 
 use common\components\curl\Curl;
+use common\config\ConfigDataLocal;
 use yii\console\Controller;
 
 class TestController extends Controller
 {
     public function actionTest1()
     {
-        $x = Curl::get("http://www.baidu.com/");
-        var_dump($x);
+        #
     }
 }
