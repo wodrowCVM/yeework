@@ -165,7 +165,8 @@
         "johnitvn/yii2-ajaxcrud": "*",
         "schmunk42/yii2-giiant": "*",
         "warrence/yii2-kartikgii": "@dev",
-        "omnilight/yii2-shopping-cart": "*"
+        "omnilight/yii2-shopping-cart": "*",
+        "linslin/yii2-curl": "*"
     },
     "require-dev": {
         "codeception/codeception": "*",
