@@ -36,7 +36,7 @@ class AppAsset extends AssetBundle
             Bootstrap::className(),
             FontAwesomeAsset::className(),
             CrudAsset::className(),
-            Less::className(),
+//            Less::className(),
         ];
         /*\Yii::$container->set(\yii\grid\GridView::className(), \Zelenin\yii\SemanticUI\widgets\GridView::className());
         \Yii::$container->set(\yii\widgets\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());
