@@ -110,7 +110,23 @@ $columns = [
         'vAlign' => 'middle',
     ],
 //            'home_link',
-//            'created_at',
+    [
+        'attribute'=>'created_at',
+        'value'=>function($model){
+            return date("Y-m-d H:i:s",$model['created_at']);
+        },
+        'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
+        'filterWidgetOptions' =>([
+            'model'=>$searchModel,
+            'attribute'=>'created_at',
+            'presetDropdown'=>TRUE,
+            'convertFormat'=>true,
+            'pluginOptions'=>[
+                'format'=>'Y-m-d',
+                'opens'=>'left',
+            ]
+        ]),
+    ],
 //            'updated_at',
     [
         'class' => \common\components\grid\EnumColumn::className(),

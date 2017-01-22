@@ -47,7 +47,6 @@ class BrandSearch extends Brand
 
         $query->andFilterWhere([
             'b.id' => $this->id,
-            'b.created_at' => $this->created_at,
             'b.updated_at' => $this->updated_at,
             'b.status' => $this->status,
             'b.sort' => $this->sort,
@@ -61,6 +60,12 @@ class BrandSearch extends Brand
             ->andFilterWhere(['like', 'b.logo', $this->logo])
             ->andFilterWhere(['like', 'b.describe', $this->describe])
             ->andFilterWhere(['like', 'b.home_link', $this->home_link]);
+
+        if ( ! is_null($this->created_at) && strpos($this->created_at, ' - ') !== false ) {
+            list($start_date, $end_date) = explode(' - ', $this->created_at);
+            $query->andFilterWhere(['between', 'created_at', strtotime($start_date), strtotime($end_date.' 23:59:59')]);
+//            $this->created_at = null;
+        }
 
         return $dataProvider;
     }
