@@ -33,11 +33,11 @@ $columns = [
                 'data-pjax'=>0,
             ]);
         },*/
-        'value' => function($model, $key, $index, $column){
-            return \kartik\helpers\Html::img($model->logo.\common\tools\Qiniu::STYLE_YII2_GRIDVIEW, []);
+        'value' => function ($model, $key, $index, $column) {
+            return \kartik\helpers\Html::img($model->logo . \common\tools\Qiniu::STYLE_YII2_GRIDVIEW, []);
         },
         'format' => 'raw',
-        'mergeHeader'=>true,
+        'mergeHeader' => true,
     ],
     [
         'class' => \kartik\grid\ExpandRowColumn::className(),
@@ -46,17 +46,17 @@ $columns = [
             return \kartik\grid\GridView::ROW_COLLAPSED;
         },
         'detail' => function ($model, $key, $index, $column) {
-            return Yii::$app->controller->renderPartial('view', ['model'=>$model, 'id'=>$key]);
+            return Yii::$app->controller->renderPartial('view', ['model' => $model, 'id' => $key]);
         },
         'headerOptions' => ['class' => 'kartik-sheet-style'],
         'expandOneOnly' => true,
-        'pageSummary'=>'总计',//可以是字符串，当为true时，自动合计
+        'pageSummary' => '总计',//可以是字符串，当为true时，自动合计
     ],
     [
         'class' => \kartik\grid\DataColumn::className(),
         'attribute' => 'id',
 //            'pageSummary' => true,
-        'footer'=>true,
+        'footer' => true,
         'vAlign' => 'middle',
     ],
     [
@@ -64,7 +64,7 @@ $columns = [
         'attribute' => 'name',
 //            'visible'=>true,//不显示，代码也没有
 //            'hidden'=>true,//隐藏，代码还有，导出csv等时还存在
-        'hiddenFromExport'=>true,//虽然显示，但导出csv时忽略掉
+        'hiddenFromExport' => true,//虽然显示，但导出csv时忽略掉
 //            'mergeHeader'=>true,//合并标题和检索栏
         /*'value' => function ($model) {
             return $model->name;
@@ -111,21 +111,21 @@ $columns = [
     ],
 //            'home_link',
     [
-        'attribute'=>'created_at',
-        'value'=>function($model){
-            return date("Y-m-d H:i:s",$model['created_at']);
+        'attribute' => 'created_at',
+        'value' => function ($model) {
+            return date("Y-m-d", $model['created_at']);
         },
         'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
-        'filterWidgetOptions' =>([
-            'model'=>$searchModel,
+        'filterWidgetOptions' => [
+            'model' => $searchModel,
             'attribute'=>'created_at',
-            'presetDropdown'=>TRUE,
-            'convertFormat'=>true,
-            'pluginOptions'=>[
-                'format'=>'Y-m-d',
-                'opens'=>'left',
+            'presetDropdown' => TRUE,
+            'convertFormat' => true,
+            'pluginOptions' => [
+                'format' => 'Y-m-d',
+                'opens' => 'left',
             ]
-        ]),
+        ],
     ],
 //            'updated_at',
     [
