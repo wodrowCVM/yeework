@@ -70,7 +70,8 @@
         "hguenot/yii2-gsftp":"a ftp maybe have gui",
         "microinginer/yii2-debug-user-switch":"can not use",
         "trntv/yii2-debug-xhprof": "dev-master need ext.xhprof",
-        "omnilight/yii2-shopping-cart": "*"
+        "omnilight/yii2-shopping-cart": "*",
+        "singrana/yii2-less": "dev-master"
     },
     "name": "yeework",
     "description": "yeework",
@@ -166,7 +167,8 @@
         "schmunk42/yii2-giiant": "*",
         "warrence/yii2-kartikgii": "@dev",
         "omnilight/yii2-shopping-cart": "*",
-        "linslin/yii2-curl": "*"
+        "linslin/yii2-curl": "*",
+        "singrana/yii2-less": "dev-master"
     },
     "require-dev": {
         "codeception/codeception": "*",

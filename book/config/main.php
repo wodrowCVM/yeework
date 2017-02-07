@@ -83,6 +83,12 @@ $config = [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
         ],
+        'assetManager' => [
+            'converter' =>
+                [
+                    'class' => \singrana\assets\Converter::className(),
+                ],
+        ],
         'i18n' => [
             'translations' => [
                 'user' => [
