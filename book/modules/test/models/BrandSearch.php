@@ -65,7 +65,6 @@ class BrandSearch extends Brand
         if ( ! is_null($this->created_at) && strpos($this->created_at, ' - ') !== false ) {
             list($start_date, $end_date) = explode(' - ', $this->created_at);
             $query->andFilterWhere(['between', 'b.created_at', strtotime($start_date), strtotime($end_date.' 23:59:59')]);
-            $this->created_at = null;
         }
 
         return $dataProvider;

@@ -133,6 +133,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'pluginOptions'=>[
                     'format'=>'Y-m-d',
                     'opens'=>'left',
+                    'locale' => [
+                        'cancelLabel' => 'Clear',
+                        'format' => 'Y-m-d',
+                    ],
                 ]
             ]),
         ],
