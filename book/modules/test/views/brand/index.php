@@ -138,7 +138,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ]),
         ],
-//            'updated_at',
+        [
+            'attribute'=>'updated_at',
+            'format' => ['date', 'php:Y-m-d H:i:s'],
+            'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
+            'filterWidgetOptions' =>([
+                'model'=>$searchModel,
+                'attribute'=>'updated_at',
+                'presetDropdown'=>TRUE,
+                'convertFormat'=>true,
+                'pluginOptions'=>[
+                    'format'=>'Y-m-d',
+                    'opens'=>'left',
+                    'locale' => [
+                        'cancelLabel' => 'Clear',
+                        'format' => 'Y-m-d',
+                    ],
+                ]
+            ]),
+        ],
         [
             'class' => \common\components\grid\EnumColumn::className(),
             'attribute' => 'status',

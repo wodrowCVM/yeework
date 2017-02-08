@@ -16,8 +16,8 @@ class BrandSearch extends Brand
     public function rules()
     {
         return [
-            [['id', 'updated_at', 'status', 'sort', 'created_by', 'updated_by'], 'integer'],
-            [['created_at'], 'string'],
+            [['id', 'status', 'sort', 'created_by', 'updated_by'], 'integer'],
+            [['created_at', 'updated_at'], 'string'],
             [['name', 'chinese_name', 'english_name', 'logo', 'describe', 'home_link'], 'safe'],
         ];
     }
@@ -48,7 +48,6 @@ class BrandSearch extends Brand
 
         $query->andFilterWhere([
             'b.id' => $this->id,
-            'b.updated_at' => $this->updated_at,
             'b.status' => $this->status,
             'b.sort' => $this->sort,
             'b.created_by' => $this->created_by,
@@ -65,6 +64,11 @@ class BrandSearch extends Brand
         if ( ! is_null($this->created_at) && strpos($this->created_at, ' - ') !== false ) {
             list($start_date, $end_date) = explode(' - ', $this->created_at);
             $query->andFilterWhere(['between', 'b.created_at', strtotime($start_date), strtotime($end_date.' 23:59:59')]);
+        }
+
+        if ( ! is_null($this->updated_at) && strpos($this->updated_at, ' - ') !== false ) {
+            list($start_date, $end_date) = explode(' - ', $this->updated_at);
+            $query->andFilterWhere(['between', 'b.updated_at', strtotime($start_date), strtotime($end_date.' 23:59:59')]);
         }
 
         return $dataProvider;
