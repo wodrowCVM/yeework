@@ -123,7 +123,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute'=>'created_at',
             'format' => ['date', 'php:Y-m-d H:i:s'],
             'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
-            'filterWidgetOptions' =>([
+            'filterWidgetOptions' =>[
                 'model'=>$searchModel,
                 'attribute'=>'created_at',
                 'presetDropdown'=>TRUE,
@@ -136,13 +136,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'Y-m-d',
                     ],
                 ]
-            ]),
+            ],
         ],
         [
             'attribute'=>'updated_at',
             'format' => ['date', 'php:Y-m-d H:i:s'],
             'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
-            'filterWidgetOptions' =>([
+            'filterWidgetOptions' =>[
                 'model'=>$searchModel,
                 'attribute'=>'updated_at',
                 'presetDropdown'=>TRUE,
@@ -155,7 +155,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => 'Y-m-d',
                     ],
                 ]
-            ]),
+            ],
         ],
         [
             'class' => \common\components\grid\EnumColumn::className(),
