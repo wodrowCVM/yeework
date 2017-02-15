@@ -14,12 +14,15 @@
 <div class="goods-form">
     <?php
     $get_brand_ajax_url = \yii\helpers\Url::to(['/shop/brand/ajax-search-brand-for-select2']);
-    $x = new stdClass();
+    $_brand = new stdClass();
     if (isset($model->brand->id)){
-        $x->id = $model->brand->id;
-        $x->name = $model->brand->name;
+        $_brand->id = $model->brand->id;
+        $_brand->name = $model->brand->name;
     }
-    $init_brand_json = \GuzzleHttp\json_encode($x);
+    $init_brand_json = \GuzzleHttp\json_encode($_brand);
+    $get_attribute_ajax_url = \yii\helpers\Url::to(['/shop/attribute/ajax-search-attribute-for-select2']);
+    var_dump($model->attribute_ids_str);
+    $_attribute = new stdClass();
     $form = \kartik\widgets\ActiveForm::begin();
     ?>
 
@@ -45,13 +48,13 @@
             'escapeMarkup' => new \yii\web\JsExpression('function (markup) { return markup; }'),
             'templateResult' => new \yii\web\JsExpression('function(res) { return res.name; }'),
             'templateSelection' => new \yii\web\JsExpression('function (res) { return res.name; }'),
-            'initSelection' => new \yii\web\JsExpression(
+            'initSelection' => isset($model->brand->id)?new \yii\web\JsExpression(
                 <<< SCRIPT
                 function (element, callback) {
                     callback($init_brand_json);
                 }
 SCRIPT
-            ),
+            ):null,
         ],
     ])->label('品牌 (<small>若没有找到请先' . \yii\helpers\Html::a('创建品牌', ['brand/create'], [
             'id' => 'create-brand-a',
@@ -74,20 +77,25 @@ SCRIPT
                 'errorLoading' => new \yii\web\JsExpression("function () { return 'Waiting...'; }"),
             ],
             'ajax' => [
-                'url' => \yii\helpers\Url::to(['/shop/attribute/ajax-search-attribute-for-select2']),
+                'url' => $get_attribute_ajax_url,
                 'dataType' => 'json',
                 'data' => new \yii\web\JsExpression('function(params) { return {name:params.term}; }')
             ],
             'escapeMarkup' => new \yii\web\JsExpression('function (markup) { return markup; }'),
             'templateResult' => new \yii\web\JsExpression('function(res) { return res.name; }'),
             'templateSelection' => new \yii\web\JsExpression('function (res) { return res.name; }'),
+            /*'initSelection' => new \yii\web\JsExpression(
+                <<< SCRIPT
+                function (element, callback) {
+//                    callback($init_brand_json);
+//                    console.log($(element).html());
+                }
+SCRIPT
+            ),*/
         ],
     ])->label("所需属性") ?>
 
     <?php echo $form->field($model, 'is_virtual')->dropDownList(\book\models\Goods::getIsVirtualSelect()) ?>
-    <?php /*echo $form->field($model, 'is_virtual')->widget(\kartik\select2\Select2::className(), [
-        'data' => \book\models\Goods::getIsVirtualSelect(),
-    ])*/ ?>
 
     <?= $form->field($model, 'location_area')->textInput() ?>
 
