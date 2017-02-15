@@ -27,17 +27,18 @@ body {
 }*/
 
 /*class*/
+@xxx = #337ab7;
 .panel li{
-  .active{
-    background: #337ab7;
+  &.active{
+    background: @xxx;
     a{
       color: #fff;
       &:hover{
-        background: #337ab7;
+        background: @xxx;
       }
     }
   }
-  .list-group-item{
+  &.list-group-item{
     a{
       margin:-10px -15px;
     }
