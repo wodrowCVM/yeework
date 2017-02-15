@@ -183,6 +183,28 @@
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
+        },
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "book/runtime": "0777",
+                    "book/assets": "0777",
+                    "book/yii": "0755"
+                }
+            ]
+        },
+        "yii\\composer\\Installer::postInstall": {
+            "copyFiles": [
+                {
+                    "config/templates/console-local.php": "book/config/console-local.php",
+                    "config/templates/web-local.php": "book/config/web-local.php",
+                    "config/templates/db-local.php": "book/config/db-local.php",
+                    "config/templates/cache.json": ["book/runtime/cache.json", true]
+                }
+            ],
+            "generateCookieValidationKey": [
+                "book/config/main-local.php"
+            ]
         }
     },
     "scripts": {
