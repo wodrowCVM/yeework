@@ -12,8 +12,16 @@
 ?>
 
 <div class="goods-form">
-
-    <?php $form = \kartik\widgets\ActiveForm::begin(); ?>
+    <?php
+    $get_brand_ajax_url = \yii\helpers\Url::to(['/shop/brand/ajax-search-brand-for-select2']);
+    $x = new stdClass();
+    if (isset($model->brand->id)){
+        $x->id = $model->brand->id;
+        $x->name = $model->brand->name;
+    }
+    $init_brand_json = \GuzzleHttp\json_encode($x);
+    $form = \kartik\widgets\ActiveForm::begin();
+    ?>
 
     <?= $form->field($model, 'shop_id')->dropDownList(\book\models\Shop::getUserSelectShop()) ?>
 
@@ -28,19 +36,28 @@
                 'errorLoading' => new \yii\web\JsExpression("function () { return 'Waiting...'; }"),
             ],
             'ajax' => [
-                'url' => \yii\helpers\Url::to(['/shop/brand/ajax-search-brand-for-select2']),
+                'url' => $get_brand_ajax_url,
                 'dataType' => 'json',
-                'data' => new \yii\web\JsExpression('function(params) { return {name:params.term}; }')
+//                'data' => new \yii\web\JsExpression('function(params) { return {name:params.term}; }'),
+                'data' => new \yii\web\JsExpression('function(term,page) { return {search:term}; }'),
+                'results' => new \yii\web\JsExpression('function(data,page) { return {results:data.results}; }'),
             ],
             'escapeMarkup' => new \yii\web\JsExpression('function (markup) { return markup; }'),
             'templateResult' => new \yii\web\JsExpression('function(res) { return res.name; }'),
             'templateSelection' => new \yii\web\JsExpression('function (res) { return res.name; }'),
+            'initSelection' => new \yii\web\JsExpression(
+                <<< SCRIPT
+                function (element, callback) {
+                    callback($init_brand_json);
+                }
+SCRIPT
+            ),
         ],
-    ])->label('品牌 (<small>若没有找到请先'.\yii\helpers\Html::a('创建品牌',['brand/create'], [
+    ])->label('品牌 (<small>若没有找到请先' . \yii\helpers\Html::a('创建品牌', ['brand/create'], [
             'id' => 'create-brand-a',
-            'class'=>'btn btn-xs btn-default',
+            'class' => 'btn btn-xs btn-default',
             'target' => '_blank',
-        ]).',通过审核后即可上架产品</small>)', ['encodeLabels' => false]) ?>
+        ]) . ',通过审核后即可上架产品</small>)', ['encodeLabels' => false]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -48,7 +65,7 @@
 
     <?= $form->field($model, 'status')->dropDownList(\book\models\Goods::getStatusSelect()) ?>
 
-    <?= $form->field($model, 'attribute_ids_str')->widget(\kartik\select2\Select2::className(), [
+    <?php echo $form->field($model, 'attribute_ids_str')->widget(\kartik\select2\Select2::className(), [
         'options' => ['multiple' => true, 'placeholder' => '请输入标题名称 ...'],
         'pluginOptions' => [
             'placeholder' => 'search ...',
@@ -67,7 +84,10 @@
         ],
     ])->label("所需属性") ?>
 
-    <?= $form->field($model, 'is_virtual')->dropDownList(\book\models\Goods::getIsVirtualSelect()) ?>
+    <?php echo $form->field($model, 'is_virtual')->dropDownList(\book\models\Goods::getIsVirtualSelect()) ?>
+    <?php /*echo $form->field($model, 'is_virtual')->widget(\kartik\select2\Select2::className(), [
+        'data' => \book\models\Goods::getIsVirtualSelect(),
+    ])*/ ?>
 
     <?= $form->field($model, 'location_area')->textInput() ?>
 

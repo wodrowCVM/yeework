@@ -6,7 +6,7 @@
  * Time: 2:53 PM
  */
 /* @var $this yii\web\View */
-/* @var $model book\models\tables\Goods */
+/* @var $model book\models\Goods */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Goods'), 'url' => ['index']];
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'shop_id',
             'name',
-            'brand_id',
+            'brand.name',
             'title',
             'code',
             'cover',

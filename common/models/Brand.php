@@ -33,4 +33,11 @@ class Brand extends \common\models\tables\Brand
         }
         return $data;
     }
+
+    public function attributeLabels()
+    {
+        return array_merge(parent::attributeLabels(), [
+            'name' => '品牌名',
+        ]);
+    }
 }
