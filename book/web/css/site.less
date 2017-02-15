@@ -9,10 +9,9 @@ body {
   height: auto;
   margin: 0 auto -50px;
   padding: 0 0 60px;
-}
-
-.wrap > .container {
-  padding: 70px 15px 20px;
+  & > .container {
+    padding: 70px 15px 20px;
+  }
 }
 
 .footer {
@@ -28,17 +27,21 @@ body {
 }*/
 
 /*class*/
-.panel li.active{
-  background: #337ab7;
-}
-.panel li.active a{
-  color: #fff;
-}
-.panel li.active a:hover{
-  background: #337ab7;
-}
-.panel li.list-group-item a{
-  margin:-10px -15px;
+.panel li{
+  .active{
+    background: #337ab7;
+    a{
+      color: #fff;
+      &:hover{
+        background: #337ab7;
+      }
+    }
+  }
+  .list-group-item{
+    a{
+      margin:-10px -15px;
+    }
+  }
 }
 
 /*id*/
