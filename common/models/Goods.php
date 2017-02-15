@@ -9,8 +9,23 @@
 namespace common\models;
 
 
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+
 class Goods extends \common\models\tables\Goods
 {
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+            ],
+            'blameable' => [
+                'class' => BlameableBehavior::className(),
+            ],
+        ];
+    }
+
     const IS_VIRTUAL_FALSE = 0;
     const IS_VIRTUAL_TURE = 1;
 

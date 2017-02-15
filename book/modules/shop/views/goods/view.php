@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at:datetime',
             'updated_at:datetime',
             'status',
-            'attribute_ids_str',
+//            'attribute_ids_str',
             'is_virtual',
             'location_area',
             'location_info',

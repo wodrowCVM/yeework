@@ -61,7 +61,6 @@ class GoodsController extends Controller
     public function actionCreate()
     {
         $model = new Goods();
-        $model->created_user_id = \Yii::$app->user->identity->id;
         $model->code = $model::createCode();
         if ($shop_id = \Yii::$app->request->get('shop_id')){
             $model->shop_id = $shop_id;
