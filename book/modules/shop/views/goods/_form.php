@@ -21,8 +21,6 @@
     }
     $init_brand_json = \GuzzleHttp\json_encode($_brand);
     $get_attribute_ajax_url = \yii\helpers\Url::to(['/shop/attribute/ajax-search-attribute-for-select2']);
-    var_dump($model->attribute_ids_str);
-    $_attribute = new stdClass();
     $form = \kartik\widgets\ActiveForm::begin();
     ?>
 
@@ -67,33 +65,6 @@ SCRIPT
     <?= $form->field($model, 'cover')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'status')->dropDownList(\book\models\Goods::getStatusSelect()) ?>
-
-    <?php echo $form->field($model, 'attribute_ids_str')->widget(\kartik\select2\Select2::className(), [
-        'options' => ['multiple' => true, 'placeholder' => '请输入标题名称 ...'],
-        'pluginOptions' => [
-            'placeholder' => 'search ...',
-            'allowClear' => true,
-            'language' => [
-                'errorLoading' => new \yii\web\JsExpression("function () { return 'Waiting...'; }"),
-            ],
-            'ajax' => [
-                'url' => $get_attribute_ajax_url,
-                'dataType' => 'json',
-                'data' => new \yii\web\JsExpression('function(params) { return {name:params.term}; }')
-            ],
-            'escapeMarkup' => new \yii\web\JsExpression('function (markup) { return markup; }'),
-            'templateResult' => new \yii\web\JsExpression('function(res) { return res.name; }'),
-            'templateSelection' => new \yii\web\JsExpression('function (res) { return res.name; }'),
-            /*'initSelection' => new \yii\web\JsExpression(
-                <<< SCRIPT
-                function (element, callback) {
-//                    callback($init_brand_json);
-//                    console.log($(element).html());
-                }
-SCRIPT
-            ),*/
-        ],
-    ])->label("所需属性") ?>
 
     <?php echo $form->field($model, 'is_virtual')->dropDownList(\book\models\Goods::getIsVirtualSelect()) ?>
 
