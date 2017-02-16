@@ -10,6 +10,7 @@ use Yii;
  * @property string $id
  * @property string $goods_id
  * @property string $attribute_id
+ * @property string $value
  */
 class GoodsAttribute extends \yii\db\ActiveRecord
 {
@@ -27,8 +28,9 @@ class GoodsAttribute extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['goods_id', 'attribute_id'], 'required'],
+            [['goods_id', 'attribute_id', 'value'], 'required'],
             [['goods_id', 'attribute_id'], 'integer'],
+            [['value'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,6 +43,7 @@ class GoodsAttribute extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'goods_id' => Yii::t('app', 'Goods ID'),
             'attribute_id' => Yii::t('app', 'Attribute ID'),
+            'value' => Yii::t('app', 'Value'),
         ];
     }
 }
