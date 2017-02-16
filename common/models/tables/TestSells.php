@@ -1,23 +1,23 @@
 <?php
 
-namespace book\modules\test\models;
+namespace common\models\tables;
 
 use Yii;
 
 /**
- * This is the model class for table "{{%test}}".
+ * This is the model class for table "{{%test_sells}}".
  *
- * @property integer $id
+ * @property string $id
  * @property string $name
  */
-class Test extends \yii\db\ActiveRecord
+class TestSells extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%test}}';
+        return '{{%test_sells}}';
     }
 
     /**
@@ -26,6 +26,7 @@ class Test extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -36,8 +37,8 @@ class Test extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 }
