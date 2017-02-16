@@ -58,6 +58,8 @@ SCRIPT
             'id' => 'create-brand-a',
             'class' => 'btn btn-xs btn-default',
             'target' => '_blank',
+            'role'=>'modal-remote',
+            'title'=> '创建品牌',
         ]) . ',通过审核后即可上架产品</small>)', ['encodeLabels' => false]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

@@ -32,6 +32,11 @@
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+<?php \yii\bootstrap\Modal::begin([
+    "id"=>"ajaxCrudModal",
+    "footer"=>"",// always need it for jquery plugin
+])?>
+<?php \yii\bootstrap\Modal::end(); ?>
 <?php $this->endBody() ?>
 <script>
     $(function(e){
