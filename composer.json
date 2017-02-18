@@ -3,6 +3,13 @@
         "scripts": {
             "post-install-cmd": "php init --env=Development --overwrite=n"
         },
+        "repositories": {
+            "packagist":{
+                "type": "composer",
+                "url": "https://packagist.phpcomposer.com",
+                "url1": "http://pkg.uselaravel.com/repo/packagist/"
+            }
+        },
         "UI":{
             "zelenin/yii2-semantic-ui":"an ui style better for book web",
             "kartik-v/yii2-icons":{
