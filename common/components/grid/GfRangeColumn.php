@@ -11,7 +11,7 @@ namespace common\components\grid;
 
 use kartik\grid\DataColumn;
 
-class RangeColumn extends DataColumn
+class GfRangeColumn extends DataColumn
 {
     
 }

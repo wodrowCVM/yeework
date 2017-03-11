@@ -164,7 +164,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'vAlign' => 'middle',
         ],
         [
-            'class' => \kartik\grid\DataColumn::className(),
+            'class' => \common\components\grid\GfRangeColumn::className(),
             'attribute' => 'sort',
             'pageSummary' => true,
             'vAlign' => 'middle',
