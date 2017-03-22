@@ -926,4 +926,14 @@ class Tools
         $x = rand(0, $limit);
         return $arr[$x];
     }
+
+    public static function test1($x){
+        if ($x>10){
+            $x = $x-5;
+            $y = __FUNCTION__;
+            self::$y($x);
+        }else{
+            echo $x;
+        }
+    }
 }
