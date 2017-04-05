@@ -119,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'vAlign' => 'middle',
         ],
 //            'home_link',
-        [
+        /*[
             'attribute'=>'created_at',
             'format' => ['date', 'php:Y-m-d H:i:s'],
             'filterType' => \kartik\grid\GridView::FILTER_DATE_RANGE,
@@ -156,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]
             ],
-        ],
+        ],*/
         [
             'class' => \common\components\grid\EnumColumn::className(),
             'attribute' => 'status',
@@ -174,15 +174,31 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => \kartik\grid\ActionColumn::className(),
             'header' => '操作',
-            'template' => '{view} {update} {delete}',//只需要展示删除和更新
+            'template' => '{view} {update} {delete} {test}',//只需要展示删除和更新
 //            'headerOptions' => [],
             'buttons' => [
-                'update' => function ($url, $model, $key) {
+                'view' => function($url, $model, $key){
+                    return \yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span>', '#', [
+                        'data-toggle' => 'modal',
+                        'data-target' => '#view-modal',
+                        'class' => 'data-view',
+                        'data-id' => $key,
+                    ]);
+                },
+                'update' => function($url, $modal, $key){
+                    return \yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>', '#', [
+                        'data-toggle' => 'modal',
+                        'data-target' => '#update-modal',
+                        'class' => 'data-update',
+                        'data-id' => $key,
+                    ]);
+                },
+                /*'update' => function ($url, $model, $key) {
                     return \kartik\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
                         Yii::$app->urlManager->createUrl(['test/brand/view', 'id' => $model->id, 'edit' => 't']),
                         ['title' => Yii::t('yii', 'Edit'),]
                     );
-                },
+                },*/
                 'delete' => function ($url, $model, $key) {
                     return \kartik\helpers\Html::a('<span class="glyphicon glyphicon-trash"></span>',
                         ['delete', 'id' => $key],
@@ -193,6 +209,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'data-method' => 'post',
                         ]
+                    );
+                },
+                'test' => function($url, $model, $key) {
+                    return \kartik\helpers\Html::a('<span class="glyphicon glyphicon-user"></span>',
+                        ['view', 'id' => $key]
                     );
                 },
             ],
@@ -260,3 +281,44 @@ $this->params['breadcrumbs'][] = $this->title;
     \yii\widgets\Pjax::end(); ?>
 
 </div>
+
+
+<?php
+\yii\bootstrap\Modal::begin([
+    'id' => 'view-modal',
+    'header' => '<h4 class="modal-title">view</h4>',
+    'footer' => '',
+]);
+\yii\bootstrap\Modal::end();
+$requestViewUrl = \yii\helpers\Url::toRoute('view');
+$viewJs = <<<JS
+    $('.data-view').on('click', function () {
+        $.get('{$requestViewUrl}', { id: $(this).closest('tr').data('key') },
+            function (data) {
+                $('#view-modal .modal-header').html(data['title']);
+                $('#view-modal .modal-body').html(data['content']);
+                $('#view-modal .modal-footer').html(data['footer']);
+            }  
+        );
+    });
+JS;
+$this->registerJs($viewJs);
+
+\yii\bootstrap\Modal::begin([
+    'id' => 'update-modal',
+    'header' => '<h4 class="modal-title">update</h4>',
+    'footer' => \yii\helpers\Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]),
+]);
+\yii\bootstrap\Modal::end();
+$requestUpdateUrl = \yii\helpers\Url::toRoute('update');
+$updateJs = <<<JS
+    $('.data-update').on('click', function () {
+        $.get('{$requestUpdateUrl}', { id: $(this).closest('tr').data('key') },
+            function (data) {
+                $('#update-modal .modal-body').html(data);
+            }  
+        );
+    });
+JS;
+$this->registerJs($updateJs);
+?>
