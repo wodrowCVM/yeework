@@ -174,8 +174,7 @@
         "warrence/yii2-kartikgii": "@dev",
         "omnilight/yii2-shopping-cart": "*",
         "linslin/yii2-curl": "*",
-        "singrana/yii2-less": "dev-master",
-        "voskobovich/yii2-tree-manager": "~1.0"
+        "singrana/yii2-less": "dev-master"
     },
     "require-dev": {
         "codeception/codeception": "*",

@@ -2,6 +2,7 @@
 
 namespace book\modules\test\controllers;
 
+use common\models\tables\TestTree;
 use Yii;
 use book\modules\test\models\Brand;
 use book\modules\test\models\BrandSearch;
@@ -195,4 +196,9 @@ class BrandController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+	
+	public function actionTest2()
+	{
+		return $this->render('test2');
+	}
 }
